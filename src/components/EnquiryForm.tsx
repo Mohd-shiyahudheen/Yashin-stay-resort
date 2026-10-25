@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { siteData } from "@/data/siteData";
 import { SectionWrapper } from "./ui/SectionWrapper";
 import { SectionHeading } from "./ui/SectionHeading";
@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   ShieldCheck,
   Star,
+  Calendar,
 } from "lucide-react";
 
 export function EnquiryForm() {
@@ -25,6 +26,12 @@ export function EnquiryForm() {
     guests: "2 Adults",
     message: "",
   });
+
+  const [todayStr, setTodayStr] = useState<string>("");
+
+  useEffect(() => {
+    setTodayStr(new Date().toISOString().split("T")[0]);
+  }, []);
 
   const stayOptions = [
     { label: "6-Bedroom Grand Pool Cottage (6 Rooms)", value: "6-Bedroom Grand Pool Cottage (6 Rooms)", subtitle: "Tariff on Request" },
@@ -109,10 +116,10 @@ _Sent via Yashin Stay Reservation Suite_`;
         </div>
       </div>
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto w-full min-w-0">
         <form
           onSubmit={handleSubmit}
-          className="bg-white/[0.04] backdrop-blur-2xl border border-white/15 p-4 sm:p-7 md:p-10 rounded-3xl shadow-2xl flex flex-col gap-5 sm:gap-8 relative"
+          className="bg-white/[0.04] backdrop-blur-2xl border border-white/15 p-4 sm:p-7 md:p-10 rounded-3xl shadow-2xl flex flex-col gap-5 sm:gap-8 relative w-full min-w-0 overflow-hidden box-border"
         >
           {/* Official Resort Contact Banner */}
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-mist/80 border-b border-white/10 pb-5">
@@ -208,46 +215,50 @@ _Sent via Yashin Stay Reservation Suite_`;
           </div>
 
           {/* Dates & Guests */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-            <div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full min-w-0">
+            <div className="w-full min-w-0">
               <label
                 htmlFor="checkIn"
                 className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
               >
                 Check-in Date
               </label>
-              <div className="relative">
+              <div className="relative w-full min-w-0">
                 <input
                   id="checkIn"
                   name="checkIn"
                   type="date"
+                  min={todayStr || undefined}
                   value={formData.checkIn}
                   onChange={handleChange}
-                  className="w-full px-4 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark]"
+                  className="w-full max-w-full min-w-0 box-border block pl-4 pr-11 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
                 />
+                <Calendar className="w-4 h-4 text-amber/80 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
-            <div>
+            <div className="w-full min-w-0">
               <label
                 htmlFor="checkOut"
                 className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
               >
                 Check-out Date
               </label>
-              <div className="relative">
+              <div className="relative w-full min-w-0">
                 <input
                   id="checkOut"
                   name="checkOut"
                   type="date"
+                  min={formData.checkIn || todayStr || undefined}
                   value={formData.checkOut}
                   onChange={handleChange}
-                  className="w-full px-4 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark]"
+                  className="w-full max-w-full min-w-0 box-border block pl-4 pr-11 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
                 />
+                <Calendar className="w-4 h-4 text-amber/80 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
-            <div>
+            <div className="w-full min-w-0">
               <label
                 htmlFor="guests"
                 className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
@@ -259,7 +270,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                 name="guests"
                 value={formData.guests}
                 onChange={handleChange}
-                className="w-full px-4 py-3.5 rounded-2xl bg-[#0B1710] border border-white/15 text-white focus:border-amber focus:outline-none transition-all text-sm"
+                className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-[#0B1710] border border-white/15 text-white focus:border-amber focus:outline-none transition-all text-sm cursor-pointer"
               >
                 <option value="1-2 Adults">1-2 Adults</option>
                 <option value="2 Adults + 1 Child">2 Adults + 1 Child</option>

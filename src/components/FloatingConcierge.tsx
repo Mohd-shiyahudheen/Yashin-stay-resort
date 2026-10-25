@@ -11,12 +11,21 @@ export function FloatingConcierge() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show when scrolled past 450px, but hide if near footer
+      // Show when scrolled past 450px, but hide if inside enquiry form or near footer
       const scrollPos = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const nearBottom = docHeight - scrollPos < 400;
+      
+      const enquiryEl = document.getElementById("enquiry");
+      let nearEnquiry = false;
+      if (enquiryEl) {
+        const rect = enquiryEl.getBoundingClientRect();
+        // Hide while enquiry form is on screen
+        nearEnquiry = rect.top < window.innerHeight - 100 && rect.bottom > 100;
+      }
 
-      if (scrollPos > 450 && !nearBottom) {
+      const nearBottom = docHeight - scrollPos < 450;
+
+      if (scrollPos > 450 && !nearBottom && !nearEnquiry) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -24,6 +33,7 @@ export function FloatingConcierge() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
