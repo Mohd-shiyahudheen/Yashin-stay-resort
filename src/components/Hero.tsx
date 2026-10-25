@@ -2,10 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { siteData } from "@/data/siteData";
-import { CTAButton } from "./ui/CTAButton";
 import { motion } from "framer-motion";
-import { MessageCircle, Sparkles, ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 
 const heroSlides = [
   {
@@ -29,19 +27,14 @@ const heroSlides = [
     label: "Vythiri Rainforest",
   },
   {
-    src: "/media/images/gallery-wildlife-deer.jpg",
-    alt: "Spotted deer grazing peacefully in sunlit morning mist of Wayanad forest",
-    label: "Wayanad Wildlife",
+    src: "/media/images/real-pool-cottage.jpg",
+    alt: "Forest cottage surrounded by tea gardens and misty mountain peaks in Vythiri",
+    label: "Tea Plantations",
   },
   {
-    src: "/media/images/gallery-wildlife-monkey.jpg",
-    alt: "Bonnet macaque monkey perched peacefully in Wayanad rainforest canopy",
-    label: "Western Ghats Fauna",
-  },
-  {
-    src: "/media/images/hero-poster.jpg",
-    alt: "Yashin Stay luxury pool cottage nestled in Wayanad forest canopy",
-    label: "Forest Sanctuary",
+    src: "/media/images/gallery-drone-estate.jpg",
+    alt: "Wild spotted deer foraging peacefully in the lush rainforest hills of Wayanad",
+    label: "Wild Rainforest",
   },
 ];
 
@@ -55,16 +48,9 @@ export function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  const waClean = siteData.contact.whatsapp.replace(/[^0-9]/g, "");
-  const waLink = waClean
-    ? `https://wa.me/${waClean}?text=${encodeURIComponent(
-        `Hello ${siteData.name}, I would like to enquire about reserving a stay in Wayanad.`
-      )}`
-    : "#enquiry";
-
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-forest-dark">
-      {/* Background Cinematic Slideshow with Ambient Gradient Overlays */}
+      {/* Background Cinematic Slideshow with Lighter, Crystal-Clear Overlays */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {heroSlides.map((slide, idx) => {
           const isActive = idx === currentSlide;
@@ -87,21 +73,20 @@ export function Hero() {
                 alt={slide.alt}
                 fill
                 priority={idx === 0}
-                className="object-cover filter brightness-[0.82]"
+                className="object-cover filter brightness-95 sm:brightness-90 transition-all duration-700"
                 sizes="100vw"
               />
             </motion.div>
           );
         })}
 
-        {/* Multi-layered Vignette & Cinematic Gradients */}
-        <div className="absolute inset-0 z-20 bg-gradient-to-t from-forest-dark via-forest-dark/35 to-forest-dark/65 pointer-events-none" />
-        <div className="absolute inset-0 z-20 bg-gradient-to-r from-forest-dark/50 via-transparent to-forest-dark/50 pointer-events-none" />
-        <div className="absolute inset-0 z-20 bg-radial-[circle_at_center,_transparent_0%,_rgba(10,20,14,0.55)_100%] pointer-events-none" />
+        {/* Softened, Transparent Gradients so Background Truly Shines */}
+        <div className="absolute inset-0 z-20 bg-gradient-to-t from-forest-dark via-forest-dark/15 to-forest-dark/45 pointer-events-none" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-r from-forest-dark/30 via-transparent to-forest-dark/30 pointer-events-none" />
       </div>
 
       {/* Subtle Slideshow Indicator Dots */}
-      <div className="absolute top-20 sm:top-24 right-4 sm:right-8 z-30 flex items-center gap-2 bg-black/40 backdrop-blur-xl px-3.5 py-1.5 rounded-full border border-white/15 shadow-xl">
+      <div className="absolute top-20 sm:top-24 right-4 sm:right-8 z-30 flex items-center gap-2 bg-black/35 backdrop-blur-xl px-3 py-1.5 rounded-full border border-white/15 shadow-xl">
         <span className="text-[10px] font-mono text-amber-light tracking-widest uppercase mr-1 hidden sm:inline font-semibold">
           {heroSlides[currentSlide].label}
         </span>
@@ -123,27 +108,27 @@ export function Hero() {
       </div>
 
       {/* Top Spacer for Nav */}
-      <div className="h-20 sm:h-28 md:h-36" />
+      <div className="h-20 sm:h-28 md:h-32" />
 
-      {/* Hero Center Content - Clean, Uncluttered & Breathtaking */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-6 text-center flex flex-col items-center my-auto">
-        {/* Subtle Minimalist Location Chip */}
+      {/* Hero Center Content - Clean, Uncluttered & Maximum Background Visibility */}
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-4 sm:py-6 text-center flex flex-col items-center my-auto">
+        {/* Minimalist Location Chip */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-forest-dark/85 backdrop-blur-md border border-amber/35 text-white/95 text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] mb-3.5 sm:mb-5 shadow-xl"
+          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-forest-dark/75 backdrop-blur-md border border-amber/35 text-white/95 text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] mb-4 sm:mb-6 shadow-xl"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399] animate-pulse" />
-          <span className="text-amber-light font-medium">Vythiri • Wayanad • 700m Rainforest Sanctuary</span>
+          <span className="text-amber-light font-medium">Vythiri • Wayanad • 700m Sanctuary</span>
         </motion.div>
 
         {/* Primary Resort Title */}
         <motion.h1
-          initial={{ opacity: 0, y: 22 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.25 }}
-          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white tracking-tight leading-[1.08] mb-5 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
+          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-white tracking-tight leading-[1.08] mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]"
         >
           Untouched Forest. <br />
           <span className="italic font-light bg-gradient-to-r from-[#FFF5DC] via-[#E8C988] to-[#DFBA73] bg-clip-text text-transparent drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)]">
@@ -151,67 +136,29 @@ export function Hero() {
           </span>
         </motion.h1>
 
-        {/* Refined, Single-Sentence Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
+        {/* Luxury Highland Sanctuary Quick Bar - Single Sleek Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="text-base sm:text-lg md:text-xl text-mist/90 max-w-xl font-light leading-relaxed mb-8 px-2 drop-shadow"
+          className="w-full max-w-3xl mx-auto rounded-2xl sm:rounded-full bg-forest-dark/75 backdrop-blur-xl border border-amber/30 p-1.5 sm:p-2.5 shadow-[0_15px_35px_rgba(8,19,11,0.5)]"
         >
-          Hillside cottages & large family swimming pool enveloped in the misty rainforest peaks of Wayanad.
-        </motion.p>
-
-        {/* Just Two Clean, Balanced Action Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full sm:w-auto px-2"
-        >
-          <CTAButton
-            href="#enquiry"
-            variant="luxury"
-            size="lg"
-            className="w-full sm:w-auto shadow-xl"
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>Reserve Cottage</span>
-          </CTAButton>
-
-          <CTAButton
-            href={waLink}
-            variant="whatsapp"
-            size="lg"
-            className="w-full sm:w-auto shadow-xl"
-          >
-            <MessageCircle className="w-4 h-4 text-emerald-300" />
-            <span>Chat with Villa Host</span>
-          </CTAButton>
-        </motion.div>
-
-        {/* Luxury Highland Sanctuary Quick Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.55 }}
-          className="mt-4 sm:mt-8 w-full max-w-3xl mx-auto rounded-2xl sm:rounded-full bg-forest-dark/85 backdrop-blur-2xl border border-amber/35 p-2 sm:p-2.5 shadow-[0_20px_50px_rgba(8,19,11,0.6)]"
-        >
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-left">
-            <div className="px-3.5 py-2 rounded-xl bg-white/5 border border-white/5">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-amber">Resort Living</span>
-              <span className="block text-xs font-serif text-white font-medium truncate">3 Pool Cottages</span>
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-1.5 sm:gap-2 text-center sm:text-left">
+            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/5">
+              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber">Cottages</span>
+              <span className="block text-xs font-serif text-white font-medium truncate">3 Pool Villas</span>
             </div>
-            <div className="px-3.5 py-2 rounded-xl bg-white/5 border border-white/5">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-amber">Capacity</span>
-              <span className="block text-xs font-serif text-white font-medium truncate">12 Ensuite Rooms</span>
+            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/5">
+              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber">Capacity</span>
+              <span className="block text-xs font-serif text-white font-medium truncate">12 Rooms</span>
             </div>
-            <div className="px-3.5 py-2 rounded-xl bg-white/5 border border-white/5">
-              <span className="block text-[10px] font-mono uppercase tracking-widest text-amber">Atmosphere</span>
-              <span className="block text-xs font-serif text-white font-medium truncate">Family Pool & Lawn</span>
+            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/5">
+              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber">Features</span>
+              <span className="block text-xs font-serif text-white font-medium truncate">Pool & Lawn</span>
             </div>
             <a
               href="#enquiry"
-              className="px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#C5A059] to-[#DFBA73] text-forest-dark flex items-center justify-between font-semibold text-xs tracking-wider uppercase shadow-md hover:scale-[1.02] transition-transform"
+              className="hidden sm:flex px-3.5 py-2 rounded-xl bg-gradient-to-r from-[#C5A059] to-[#DFBA73] text-forest-dark items-center justify-between font-semibold text-xs tracking-wider uppercase shadow-md hover:scale-[1.02] transition-transform"
             >
               <span>Check Dates</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -224,8 +171,8 @@ export function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.6 }}
-        className="relative z-10 pb-3 sm:pb-6 flex flex-col items-center justify-center text-center"
+        transition={{ duration: 1, delay: 0.45 }}
+        className="relative z-10 pb-4 sm:pb-6 flex flex-col items-center justify-center text-center"
       >
         <a
           href="#story"
