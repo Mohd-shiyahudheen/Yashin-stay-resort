@@ -118,12 +118,11 @@ export function OurStory() {
                   muted={isMuted}
                   loop
                   playsInline
-                  preload="auto"
+                  preload="metadata"
                   poster="/media/images/real-pool-cottage.jpg"
                   className="w-full h-full object-cover"
                 >
                   <source src="/media/videos/hero.mp4" type="video/mp4" />
-                  <source src="/media/videos/tour.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
 
