@@ -242,19 +242,19 @@ export function Gallery() {
           </div>
 
           {/* Caption & Details Footer */}
-          <div className="relative z-10 bg-forest-dark/95 border-t border-white/10 px-5 sm:px-8 py-5 text-white">
+          <div className="relative z-10 bg-forest-dark/95 border-t border-white/15 px-5 sm:px-8 py-5 text-white">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div className="max-w-2xl">
                 <div className="flex items-center gap-2 mb-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-amber" />
-                  <span className="text-[11px] font-mono tracking-wider uppercase text-amber">
+                  <span className="text-[11px] font-mono tracking-wider uppercase text-amber-light font-bold">
                     {currentSlide.tag}
                   </span>
                 </div>
-                <h3 className="font-serif text-xl sm:text-2xl font-normal text-white leading-snug">
+                <h3 className="font-serif text-xl sm:text-2xl font-normal text-white drop-shadow-sm leading-snug">
                   {currentSlide.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-mist/80 font-light mt-1.5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-mist/95 font-light mt-1.5 leading-relaxed">
                   {currentSlide.description}
                 </p>
               </div>
@@ -266,7 +266,7 @@ export function Gallery() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-gradient-to-r from-[#174F2F] via-[#1E6B3F] to-[#174F2F] hover:from-[#1E6B3F] hover:to-[#247F4B] text-white text-xs font-medium border border-amber/30 shadow-md transition-all hover:scale-105 cursor-pointer"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-[#174F2F] via-[#1E6B3F] to-[#174F2F] hover:from-[#1E6B3F] hover:to-[#247F4B] text-white text-xs font-semibold border border-emerald-400/30 shadow-md transition-all hover:scale-105 active:scale-95 cursor-pointer"
                 >
                   <MessageCircle className="w-3.5 h-3.5 text-emerald-300" />
                   <span>Enquire This Scene</span>
@@ -275,7 +275,7 @@ export function Gallery() {
                 <button
                   type="button"
                   onClick={() => setLightboxOpen(true)}
-                  className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-mist text-xs font-medium border border-white/15 transition-all"
+                  className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-white/[0.08] hover:bg-white/15 text-white text-xs font-semibold border border-white/20 hover:border-amber/40 transition-all cursor-pointer shadow-sm active:scale-95"
                 >
                   <Maximize2 className="w-3.5 h-3.5 text-amber" />
                   <span>Zoom Photo</span>

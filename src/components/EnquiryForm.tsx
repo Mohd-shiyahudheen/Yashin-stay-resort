@@ -137,7 +137,7 @@ _Sent via Yashin Stay Reservation Suite_`;
 
           {/* Stay Type Choice Chips */}
           <div>
-            <label className="block text-xs uppercase font-mono tracking-wider text-amber mb-3 font-semibold">
+            <label className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-3 font-bold">
               1. Select Preferred Dwelling
             </label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -150,15 +150,15 @@ _Sent via Yashin Stay Reservation Suite_`;
                     onClick={() => setFormData((prev) => ({ ...prev, stayType: opt.value }))}
                     className={`flex flex-col justify-between p-4 rounded-2xl text-left border transition-all duration-300 cursor-pointer ${
                       isSelected
-                        ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber shadow-lg shadow-amber/25 font-semibold scale-102"
-                        : "bg-white/5 hover:bg-white/10 text-mist/90 border-white/10 hover:border-amber/30"
+                        ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber shadow-lg shadow-amber/25 font-bold scale-102"
+                        : "bg-white/[0.06] hover:bg-white/[0.1] text-white border-white/15 hover:border-amber/40"
                     }`}
                   >
                     <div className="flex items-center justify-between w-full mb-1">
-                      <span className="text-xs sm:text-sm font-medium">{opt.label}</span>
+                      <span className="text-xs sm:text-sm font-semibold">{opt.label}</span>
                       {isSelected && <CheckCircle2 className="w-4 h-4 text-forest-dark shrink-0 ml-1" />}
                     </div>
-                    <span className={`text-[11px] font-mono ${isSelected ? "text-forest-dark/80 font-bold" : "text-amber-light/80"}`}>
+                    <span className={`text-[11px] font-mono ${isSelected ? "text-forest-dark/90 font-bold" : "text-amber-light font-semibold"}`}>
                       {opt.subtitle}
                     </span>
                   </button>
@@ -172,12 +172,12 @@ _Sent via Yashin Stay Reservation Suite_`;
             <div>
               <label
                 htmlFor="name"
-                className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
+                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
               >
                 Full Name *
               </label>
               <div className="relative">
-                <User className="w-4 h-4 text-amber/80 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <User className="w-4 h-4 text-amber absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   id="name"
                   name="name"
@@ -186,7 +186,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-white/30 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm"
+                  className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white placeholder-white/40 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm font-sans"
                 />
               </div>
             </div>
@@ -194,12 +194,12 @@ _Sent via Yashin Stay Reservation Suite_`;
             <div>
               <label
                 htmlFor="phone"
-                className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
+                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
               >
                 WhatsApp Number *
               </label>
               <div className="relative">
-                <Phone className="w-4 h-4 text-amber/80 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <Phone className="w-4 h-4 text-amber absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   id="phone"
                   name="phone"
@@ -208,7 +208,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+91 98765 43210"
-                  className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-white/30 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm"
+                  className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white placeholder-white/40 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm font-sans"
                 />
               </div>
             </div>
@@ -219,7 +219,7 @@ _Sent via Yashin Stay Reservation Suite_`;
             <div className="w-full min-w-0">
               <label
                 htmlFor="checkIn"
-                className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
+                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
               >
                 Check-in Date
               </label>
@@ -231,16 +231,15 @@ _Sent via Yashin Stay Reservation Suite_`;
                   min={todayStr || undefined}
                   value={formData.checkIn}
                   onChange={handleChange}
-                  className="w-full max-w-full min-w-0 box-border block pl-4 pr-11 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
+                  className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
                 />
-                <Calendar className="w-4 h-4 text-amber/80 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
             <div className="w-full min-w-0">
               <label
                 htmlFor="checkOut"
-                className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
+                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
               >
                 Check-out Date
               </label>
@@ -252,16 +251,15 @@ _Sent via Yashin Stay Reservation Suite_`;
                   min={formData.checkIn || todayStr || undefined}
                   value={formData.checkOut}
                   onChange={handleChange}
-                  className="w-full max-w-full min-w-0 box-border block pl-4 pr-11 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
+                  className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
                 />
-                <Calendar className="w-4 h-4 text-amber/80 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
 
             <div className="w-full min-w-0">
               <label
                 htmlFor="guests"
-                className="block text-xs uppercase font-mono tracking-wider text-mist/90 mb-2 font-medium"
+                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
               >
                 Guests
               </label>
@@ -270,7 +268,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                 name="guests"
                 value={formData.guests}
                 onChange={handleChange}
-                className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-[#0B1710] border border-white/15 text-white focus:border-amber focus:outline-none transition-all text-sm cursor-pointer"
+                className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-[#08130B] border border-white/20 text-white focus:border-amber focus:outline-none transition-all text-sm cursor-pointer font-sans"
               >
                 <option value="1-2 Adults">1-2 Adults</option>
                 <option value="2 Adults + 1 Child">2 Adults + 1 Child</option>
@@ -313,11 +311,11 @@ _Sent via Yashin Stay Reservation Suite_`;
             <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
               <label
                 htmlFor="message"
-                className="block text-xs uppercase font-mono tracking-wider text-mist/90 font-medium"
+                className="block text-xs uppercase font-mono tracking-wider text-amber-light font-semibold"
               >
                 Special Requests & Preferred Amenities
               </label>
-              <span className="text-[11px] text-amber-light font-mono">
+              <span className="text-[11px] text-amber-light font-mono font-medium">
                 Click to add preferences:
               </span>
             </div>
@@ -355,8 +353,8 @@ _Sent via Yashin Stay Reservation Suite_`;
                     }}
                     className={`text-xs px-3 py-1.5 rounded-full transition-all cursor-pointer font-sans border ${
                       isSelected
-                        ? "bg-amber text-forest-dark border-amber font-semibold shadow-md"
-                        : "bg-white/5 border-white/15 text-mist/80 hover:bg-white/10 hover:border-amber/40"
+                        ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber font-bold shadow-md"
+                        : "bg-white/[0.06] border-white/20 text-white hover:bg-white/[0.12] hover:border-amber/50 font-medium"
                     }`}
                   >
                     {isSelected ? `✓ ${badge}` : `+ ${badge}`}
@@ -373,7 +371,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="e.g. Family with kids, photoshoot guide, barbecue setup, arrival time..."
-                className="w-full px-4 py-3.5 rounded-2xl bg-white/5 border border-white/15 text-white placeholder-white/30 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm resize-none"
+                className="w-full px-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white placeholder-white/40 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm resize-none font-sans"
               />
             </div>
           </div>

@@ -144,16 +144,16 @@ export function Hero() {
           className="w-full max-w-3xl mx-auto rounded-2xl sm:rounded-full bg-forest-dark/75 backdrop-blur-xl border border-amber/30 p-1.5 sm:p-2.5 shadow-[0_15px_35px_rgba(8,19,11,0.5)]"
         >
           <div className="grid grid-cols-3 sm:grid-cols-4 gap-1.5 sm:gap-2 text-center sm:text-left">
-            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/5">
-              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber">Cottages</span>
+            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/10">
+              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber-light font-bold">Cottages</span>
               <span className="block text-xs font-serif text-white font-medium truncate">3 Pool Villas</span>
             </div>
-            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/5">
-              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber">Capacity</span>
+            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/10">
+              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber-light font-bold">Capacity</span>
               <span className="block text-xs font-serif text-white font-medium truncate">12 Rooms</span>
             </div>
-            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/5">
-              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber">Features</span>
+            <div className="px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-white/5 border border-white/10">
+              <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber-light font-bold">Features</span>
               <span className="block text-xs font-serif text-white font-medium truncate">Pool & Lawn</span>
             </div>
             <a

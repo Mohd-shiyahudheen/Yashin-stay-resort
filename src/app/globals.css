@@ -166,19 +166,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: gentle-pulse 2.5s ease-in-out infinite;
 }
 
-/* Custom luxury scrollbar */
+/* Custom luxury dark & gold scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #ECE7DC;
+  background: #050A06;
 }
 ::-webkit-scrollbar-thumb {
-  background: #4A7338;
-  border-radius: 4px;
+  background: #C5A059;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #172D20;
+  background: #DFBA73;
 }
 
 /* Accessible focus ring */

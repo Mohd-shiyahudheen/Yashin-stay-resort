@@ -173,13 +173,13 @@ export function OurStory() {
               className="mb-4"
             />
 
-            <div className="space-y-3.5 text-mist/85 text-base sm:text-lg leading-relaxed font-light mb-6">
+            <div className="space-y-3.5 text-white/95 text-base sm:text-lg leading-relaxed font-light mb-6">
               <p>
                 Tucked into the emerald hillside folds of Vythiri, Wayanad,{" "}
-                <strong className="font-semibold text-white font-serif text-xl">{siteData.name}</strong> was
+                <strong className="font-semibold text-white font-serif text-xl sm:text-2xl">{siteData.name}</strong> was
                 crafted for families seeking pure forest tranquility, a large family swimming pool, and understated luxury across 3 hillside cottages.
               </p>
-              <p className="text-sm sm:text-base text-mist/75">
+              <p className="text-sm sm:text-base text-mist/90 leading-relaxed">
                 From sunny afternoons by the family swimming pool and laughter on the playground swings to golden-hour photoshoots against misty peaks and starlit campfire evenings, every moment is designed for lasting memories.
               </p>
             </div>
@@ -188,41 +188,41 @@ export function OurStory() {
             <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 p-3 sm:p-4 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 text-center shadow-lg">
               <div>
                 <span className="block font-serif text-2xl sm:text-3xl font-medium text-white">12</span>
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-semibold">Ensuite Rooms</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-bold">Ensuite Rooms</span>
               </div>
               <div className="border-x border-white/10">
                 <span className="block font-serif text-2xl sm:text-3xl font-medium text-white">3</span>
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-semibold">Pool Cottages</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-bold">Pool Cottages</span>
               </div>
               <div>
                 <span className="block font-serif text-2xl sm:text-3xl font-medium text-white">700m</span>
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-semibold">Misty Altitude</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-bold">Misty Altitude</span>
               </div>
             </div>
 
-            {/* 4 Pillars 2x2 Grid */}
+            {/* 4 Pillars 2x2 Grid with Crystal-Clear Contrast */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-7 pt-2">
               {pillars.map((pillar) => {
                 const IconComponent = pillar.icon;
                 return (
                   <div
                     key={pillar.title}
-                    className="flex flex-col gap-1.5 p-3.5 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-amber/45 hover:bg-white/[0.07] hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl group"
+                    className="flex flex-col gap-1.5 p-4 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-amber/50 hover:bg-white/[0.07] hover:shadow-[0_10px_30px_rgba(197,160,89,0.15)] hover:-translate-y-1 transition-all duration-300 shadow-md group"
                   >
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-xl bg-amber/15 border border-amber/30 flex items-center justify-center text-amber shrink-0 group-hover:scale-110 transition-transform">
-                          <IconComponent className="w-4 h-4 text-amber" />
+                        <div className="w-8 h-8 rounded-xl bg-amber/15 border border-amber/35 flex items-center justify-center text-amber shrink-0 group-hover:scale-110 group-hover:bg-amber group-hover:text-forest-dark transition-all duration-300">
+                          <IconComponent className="w-4 h-4" />
                         </div>
-                        <h4 className="font-serif text-base font-medium text-white group-hover:text-amber-light transition-colors">
+                        <h4 className="font-serif text-base sm:text-lg font-medium text-white group-hover:text-amber-light transition-colors">
                           {pillar.title}
                         </h4>
                       </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-amber-light font-semibold px-2 py-0.5 rounded-full bg-amber/15 border border-amber/30 shrink-0">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-amber-light font-bold px-2 py-0.5 rounded-full bg-amber/15 border border-amber/35 shrink-0">
                         {pillar.tag}
                       </span>
                     </div>
-                    <p className="text-xs text-mist/70 leading-relaxed font-light pl-10">
+                    <p className="text-xs sm:text-sm text-mist/90 leading-relaxed font-light pl-10">
                       {pillar.description}
                     </p>
                   </div>

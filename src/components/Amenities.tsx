@@ -77,7 +77,7 @@ export function Amenities() {
               className={`text-left p-5 rounded-2xl transition-all duration-300 border cursor-pointer relative overflow-hidden group ${
                 isSelected
                   ? "bg-forest-dark text-white border-amber shadow-xl scale-[1.02]"
-                  : "bg-white/80 text-bark border-forest/10 hover:border-amber/50 hover:bg-white shadow-sm"
+                  : "bg-white/[0.04] text-white/80 border-white/10 hover:border-amber/40 hover:bg-white/[0.08] shadow-sm"
               }`}
             >
               <div className="flex items-center justify-between mb-3">
@@ -85,7 +85,7 @@ export function Amenities() {
                   className={`w-11 h-11 rounded-xl flex items-center justify-center transition-colors ${
                     isSelected
                       ? "bg-amber text-forest-dark font-bold"
-                      : "bg-forest/5 text-forest group-hover:bg-amber/15 group-hover:text-amber-hover"
+                      : "bg-white/5 text-amber group-hover:bg-amber/20 group-hover:text-amber-light"
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -93,8 +93,8 @@ export function Amenities() {
                 <span
                   className={`text-[10px] font-mono tracking-widest uppercase px-2 py-0.5 rounded-full ${
                     isSelected
-                      ? "bg-white/15 text-amber-light"
-                      : "bg-forest/5 text-moss font-semibold"
+                      ? "bg-white/15 text-amber-light font-bold"
+                      : "bg-white/5 text-amber-light/80 font-semibold"
                   }`}
                 >
                   0{idx + 1}
@@ -102,14 +102,14 @@ export function Amenities() {
               </div>
               <h4
                 className={`font-serif text-lg font-medium leading-snug mb-1 ${
-                  isSelected ? "text-white" : "text-forest"
+                  isSelected ? "text-white" : "text-white/90 group-hover:text-amber-light"
                 }`}
               >
                 {badge.title}
               </h4>
               <p
                 className={`text-xs leading-relaxed ${
-                  isSelected ? "text-mist/80" : "text-bark/70"
+                  isSelected ? "text-mist/90" : "text-mist/75"
                 }`}
               >
                 {badge.desc}
@@ -134,7 +134,7 @@ export function Amenities() {
           return (
             <div
               key={amenity.id}
-              className="bg-white rounded-3xl shadow-2xl border border-forest/10 overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch"
+              className="bg-white/[0.04] backdrop-blur-2xl rounded-3xl shadow-2xl border border-amber/30 overflow-hidden grid grid-cols-1 lg:grid-cols-12 items-stretch"
             >
               {/* Left Column: Visual Showcase */}
               <div className="lg:col-span-6 relative min-h-[340px] sm:min-h-[440px] bg-forest-dark">
@@ -173,28 +173,28 @@ export function Amenities() {
               {/* Right Column: Editorial Details & Features */}
               <div className="lg:col-span-6 p-7 sm:p-10 md:p-12 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-2 text-moss font-mono text-xs uppercase tracking-widest font-semibold mb-3">
+                  <div className="flex items-center gap-2 text-amber-light font-mono text-xs uppercase tracking-widest font-bold mb-3">
                     <IconComponent className="w-4 h-4 text-amber" />
                     <span>{amenity.tagline}</span>
                   </div>
 
-                  <h3 className="font-serif text-3xl sm:text-4xl text-forest font-medium leading-tight mb-4">
+                  <h3 className="font-serif text-3xl sm:text-4xl text-white font-medium leading-tight mb-4">
                     {amenity.title}
                   </h3>
 
-                  <p className="text-bark/85 text-base sm:text-lg font-light leading-relaxed mb-6">
+                  <p className="text-white/90 text-base sm:text-lg font-light leading-relaxed mb-6">
                     {amenity.description}
                   </p>
 
                   {/* Highlights Bullet List */}
-                  <div className="space-y-3 mb-8 pt-4 border-t border-forest/10">
-                    <span className="block text-xs uppercase tracking-wider font-mono text-moss font-semibold">
+                  <div className="space-y-3 mb-8 pt-4 border-t border-white/10">
+                    <span className="block text-xs uppercase tracking-wider font-mono text-amber-light font-bold">
                       Included Privileges & Features:
                     </span>
                     {amenity.highlights.map((highlight) => (
                       <div key={highlight} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="text-sm text-bark/90 font-light">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-sm text-mist/95 font-light">
                           {highlight}
                         </span>
                       </div>

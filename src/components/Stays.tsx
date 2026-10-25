@@ -70,8 +70,8 @@ export function Stays() {
               onClick={() => setSelectedFilter(tab.value)}
               className={`px-4 py-2 rounded-full text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer ${
                 isActive
-                  ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber shadow-lg shadow-amber/25 font-semibold scale-105"
-                  : "bg-white/[0.05] text-mist/75 hover:text-white border border-white/10 hover:border-amber/30"
+                  ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber shadow-lg shadow-amber/25 font-bold scale-105"
+                  : "bg-white/[0.06] text-white/85 hover:text-white border border-white/15 hover:border-amber/40 font-medium"
               }`}
             >
               {tab.label}
@@ -89,7 +89,7 @@ export function Stays() {
 
           return (
             <div key={stay.id} className="h-full">
-              <div className="bg-white/[0.04] backdrop-blur-2xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(201,155,70,0.18)] transition-all duration-500 flex flex-col h-full border border-white/10 hover:border-amber/40 group hover:-translate-y-2">
+              <div className="bg-white/[0.04] backdrop-blur-2xl rounded-3xl overflow-hidden shadow-2xl hover:shadow-[0_20px_50px_rgba(201,155,70,0.22)] transition-all duration-500 flex flex-col h-full border border-white/10 hover:border-amber/50 group hover:-translate-y-2">
                 {/* Image Container with Badge & Rate */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-forest/10">
                   <Image
@@ -101,11 +101,11 @@ export function Stays() {
                   />
 
                   {/* Gradient vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/85 via-forest-dark/20 to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/25 to-black/30" />
 
                   {/* Stay Type Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-dark/85 backdrop-blur-md text-amber text-[11px] font-mono tracking-wider uppercase border border-white/10 shadow-md">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-dark/90 backdrop-blur-md text-amber-light text-[11px] font-mono tracking-wider uppercase border border-amber/30 shadow-md font-semibold">
                       <Waves className="w-3.5 h-3.5 text-cyan-400" />
                       <span>{stay.badge}</span>
                     </span>
@@ -113,7 +113,7 @@ export function Stays() {
 
                   {/* Rate & Capacity Tag */}
                   <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
-                    <div className="flex items-center gap-1.5 text-xs text-mist/95 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                    <div className="flex items-center gap-1.5 text-xs text-white font-medium bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/15">
                       <Users className="w-3.5 h-3.5 text-amber" />
                       <span>{stay.capacity}</span>
                     </div>
@@ -131,23 +131,23 @@ export function Stays() {
                       {stay.name}
                     </h3>
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="inline-block text-xs font-mono text-amber font-semibold uppercase tracking-wider">
+                      <span className="inline-block text-xs font-mono text-amber-light font-bold uppercase tracking-wider">
                         {stay.rooms} • Natural Pool Privileges
                       </span>
                     </div>
 
                     {/* Amenities List */}
                     <div className="mb-5 pt-3.5 border-t border-white/10">
-                      <span className="block text-[11px] font-mono uppercase tracking-wider text-amber-light font-semibold mb-2.5">
+                      <span className="block text-[11px] font-mono uppercase tracking-wider text-amber-light font-bold mb-2.5">
                         Included Privileges
                       </span>
                       <div className="flex flex-wrap gap-1.5 sm:gap-2">
                         {stay.amenities.map((amenity) => (
                           <span
                             key={amenity}
-                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.06] border border-white/10 text-mist/90 text-xs font-medium"
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/[0.07] border border-white/15 text-white text-xs font-medium hover:border-amber/40 transition-colors"
                           >
-                            <Check className="w-3 h-3 text-emerald-400" />
+                            <Check className="w-3 h-3 text-emerald-400 shrink-0" />
                             <span>{amenity}</span>
                           </span>
                         ))}
@@ -161,7 +161,7 @@ export function Stays() {
                       href={cottageWaLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-white text-xs font-medium tracking-wider uppercase transition-all duration-300 border border-white/15 hover:border-emerald-400/50 shadow-md"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-full bg-white/[0.08] hover:bg-[#25D366]/20 text-white hover:text-emerald-300 text-xs font-semibold tracking-wider uppercase transition-all duration-300 border border-white/15 hover:border-emerald-400/50 shadow-md active:scale-95"
                     >
                       <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
                       <span>Inquire via Host</span>
@@ -171,7 +171,7 @@ export function Stays() {
                       href="#enquiry"
                       variant="luxury"
                       size="sm"
-                      className="text-xs font-semibold"
+                      className="text-xs font-bold"
                     >
                       <span>Check Dates</span>
                       <ArrowRight className="w-3.5 h-3.5" />

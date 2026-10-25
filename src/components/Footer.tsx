@@ -58,23 +58,23 @@ export function Footer() {
                 </div>
               </div>
 
-              <p className="text-mist/75 text-sm sm:text-base leading-relaxed max-w-sm mb-6 font-light">
+              <p className="text-white/90 text-sm sm:text-base leading-relaxed max-w-sm mb-6 font-light">
                 An intimate forest retreat featuring our family swimming pool with kids&apos; splash zone, kindergarten play park, scenic photoshoot vistas, and luxury evening ambiance in Vythiri, Wayanad.
               </p>
             </div>
 
-            <div className="flex items-center gap-2 text-xs text-mist/60 font-mono">
-              <MapPin className="w-4 h-4 text-amber/80 shrink-0" />
+            <div className="flex items-center gap-2 text-xs text-white/80 font-mono">
+              <MapPin className="w-4 h-4 text-amber shrink-0" />
               <span>{siteData.location.village}, {siteData.location.district}, {siteData.location.state}</span>
             </div>
           </div>
 
           {/* Quick Navigation Links */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-amber mb-6 font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-amber-light mb-6 font-bold">
               Sanctuary
             </h4>
-            <ul className="space-y-3.5 text-sm text-mist/80 font-light">
+            <ul className="space-y-3.5 text-sm text-white/85 font-normal">
               <li>
                 <a href="#story" className="hover:text-amber transition-colors flex items-center gap-1.5">
                   <span>The Sanctuary & Grounds</span>
@@ -105,16 +105,16 @@ export function Footer() {
 
           {/* Contact & Socials */}
           <div className="lg:col-span-4">
-            <h4 className="text-xs font-mono uppercase tracking-widest text-amber mb-6 font-semibold">
+            <h4 className="text-xs font-mono uppercase tracking-widest text-amber-light mb-6 font-bold">
               Concierge & Enquiries
             </h4>
-            <ul className="space-y-4 text-sm text-mist/85 mb-8">
+            <ul className="space-y-4 text-sm text-white/90 mb-8">
               <li className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#25D366]">
                   <MessageCircle className="w-4 h-4 text-emerald-400" />
                 </div>
                 <div>
-                  <span className="block text-[10px] font-mono uppercase text-mist/50">WhatsApp Concierge</span>
+                  <span className="block text-[10px] font-mono uppercase text-amber-light font-semibold">WhatsApp Concierge</span>
                   <a
                     href="https://wa.me/919847123859"
                     target="_blank"
@@ -130,7 +130,7 @@ export function Footer() {
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="block text-[10px] font-mono uppercase text-mist/50">Direct Line</span>
+                  <span className="block text-[10px] font-mono uppercase text-amber-light font-semibold">Direct Line</span>
                   <a
                     href="tel:+919847123859"
                     className="font-medium text-white hover:text-amber transition-colors"

@@ -38,7 +38,7 @@ export function CTAButton({
     secondary:
       "bg-forest hover:bg-forest-light text-mist-light font-semibold shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 border border-amber/30 hover:border-amber",
     outline:
-      "border border-amber/50 text-forest hover:bg-forest hover:text-mist hover:border-forest font-medium transition-all duration-300",
+      "border border-amber/60 text-amber-light hover:bg-amber hover:text-forest-dark hover:border-amber font-semibold transition-all duration-300 shadow-sm",
     whatsapp:
       "bg-gradient-to-r from-[#174F2F] via-[#1E6B3F] to-[#174F2F] hover:from-[#1E6B3F] hover:to-[#247F4B] text-white font-medium border border-white/20 shadow-[0_4px_20px_rgba(23,79,47,0.35)] hover:shadow-[0_6px_28px_rgba(30,107,63,0.45)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300",
     luxury:
