@@ -122,8 +122,8 @@ export function OurStory() {
                   poster="/media/images/real-pool-cottage.jpg"
                   className="w-full h-full object-cover"
                 >
-                  <source src="/media/videos/Yashin_Stay_Cinematic_Forest_Edit.mp4" type="video/mp4" />
                   <source src="/media/videos/hero.mp4" type="video/mp4" />
+                  <source src="/media/videos/tour.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
 
