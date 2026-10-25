@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { siteData } from "@/data/siteData";
 import { SectionWrapper } from "./ui/SectionWrapper";
 import { SectionHeading } from "./ui/SectionHeading";
-import { ScrollReveal } from "./ui/ScrollReveal";
 import { CTAButton } from "./ui/CTAButton";
 import {
   Waves,
@@ -96,7 +95,7 @@ export function OurStory() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center">
         {/* Left Column: Portrait Video Reel with Phone Bezel */}
         <div className="lg:col-span-5 flex justify-center">
-          <ScrollReveal direction="left" className="w-full max-w-[320px] sm:max-w-[360px]">
+          <div className="w-full max-w-[320px] sm:max-w-[360px]">
             <div className="relative rounded-[2.5rem] p-2.5 sm:p-3 bg-gradient-to-b from-forest/15 via-white/40 to-forest/10 backdrop-blur-2xl border-2 border-amber/40 shadow-[0_20px_50px_rgba(10,20,14,0.18)] group">
               <div
                 className="relative aspect-[9/16] w-full rounded-[2rem] overflow-hidden bg-black shadow-inner cursor-pointer"
@@ -161,12 +160,12 @@ export function OurStory() {
                 </div>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
 
         {/* Right Column: Story Narrative & 4 Resort Highlights */}
         <div className="lg:col-span-7 flex flex-col justify-center">
-          <ScrollReveal direction="right">
+          <div className="w-full">
             <SectionHeading
               title="A Sanctuary Carved in Nature"
               tag="The Sanctuary & Grounds"
@@ -240,7 +239,7 @@ export function OurStory() {
                 <span>Location & Transit</span>
               </CTAButton>
             </div>
-          </ScrollReveal>
+          </div>
         </div>
       </div>
     </SectionWrapper>

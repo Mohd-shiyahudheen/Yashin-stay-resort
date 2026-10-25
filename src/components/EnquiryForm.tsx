@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { siteData } from "@/data/siteData";
 import { SectionWrapper } from "./ui/SectionWrapper";
 import { SectionHeading } from "./ui/SectionHeading";
-import { ScrollReveal } from "./ui/ScrollReveal";
 import { CTAButton } from "./ui/CTAButton";
 import {
   User,
@@ -110,7 +109,7 @@ _Sent via Yashin Stay Reservation Suite_`;
         </div>
       </div>
 
-      <ScrollReveal className="max-w-3xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <form
           onSubmit={handleSubmit}
           className="bg-white/[0.04] backdrop-blur-2xl border border-white/15 p-4 sm:p-7 md:p-10 rounded-3xl shadow-2xl flex flex-col gap-5 sm:gap-8 relative"
@@ -392,7 +391,7 @@ _Sent via Yashin Stay Reservation Suite_`;
             </div>
           </div>
         </form>
-      </ScrollReveal>
+      </div>
     </SectionWrapper>
   );
 }

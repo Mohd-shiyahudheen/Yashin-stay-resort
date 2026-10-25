@@ -5,7 +5,6 @@ import Image from "next/image";
 import { siteData } from "@/data/siteData";
 import { SectionWrapper } from "./ui/SectionWrapper";
 import { SectionHeading } from "./ui/SectionHeading";
-import { ScrollReveal } from "./ui/ScrollReveal";
 import { CTAButton } from "./ui/CTAButton";
 import {
   Users,
@@ -89,7 +88,7 @@ export function Stays() {
           const cottageWaLink = `https://wa.me/${waClean}?text=${cottageWaText}`;
 
           return (
-            <ScrollReveal key={stay.id} delay={idx * 0.15} className="h-full">
+            <div key={stay.id} className="h-full">
               <div className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col h-full border border-forest/10 hover:border-amber/40 group hover:-translate-y-1.5">
                 {/* Image Container with Badge & Rate */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-forest/10">
@@ -180,7 +179,7 @@ export function Stays() {
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
+            </div>
           );
         })}
       </div>

@@ -2,7 +2,6 @@ import React from "react";
 import { siteData } from "@/data/siteData";
 import { SectionWrapper } from "./ui/SectionWrapper";
 import { SectionHeading } from "./ui/SectionHeading";
-import { ScrollReveal } from "./ui/ScrollReveal";
 import { MapPin, ArrowUpRight, Navigation } from "lucide-react";
 
 export function Location() {
@@ -16,7 +15,7 @@ export function Location() {
       />
 
       {/* Interactive Google Map Embed Frame */}
-      <ScrollReveal className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="relative rounded-3xl overflow-hidden bg-forest-dark border border-forest/15 shadow-2xl">
           {/* Top Bar for Map Frame */}
           <div className="px-5 sm:px-8 py-4 bg-forest-dark/95 border-b border-white/10 flex flex-wrap items-center justify-between gap-3 text-white text-xs">
@@ -61,7 +60,7 @@ export function Location() {
             />
           </div>
         </div>
-      </ScrollReveal>
+      </div>
     </SectionWrapper>
   );
 }

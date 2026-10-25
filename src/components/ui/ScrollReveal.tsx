@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 interface ScrollRevealProps {
@@ -17,12 +17,23 @@ export function ScrollReveal({
   direction = "up",
 }: ScrollRevealProps) {
   const shouldReduceMotion = useReducedMotion();
+  const [isMobile, setIsMobile] = useState(false);
 
-  if (shouldReduceMotion) {
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(typeof window !== "undefined" && window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Always show immediately on mobile or when user prefers reduced motion
+  if (shouldReduceMotion || isMobile) {
     return <div className={className}>{children}</div>;
   }
 
-  const offset = 24;
+  const offset = 20;
   const initialVariants = {
     up: { opacity: 0, y: offset },
     down: { opacity: 0, y: -offset },
@@ -33,11 +44,12 @@ export function ScrollReveal({
 
   return (
     <motion.div
+      data-scroll-reveal="true"
       initial={initialVariants[direction]}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{
-        duration: 0.6,
+        duration: 0.5,
         delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
