@@ -123,16 +123,16 @@ export function Hero() {
       </div>
 
       {/* Top Spacer for Nav */}
-      <div className="h-28 sm:h-36" />
+      <div className="h-20 sm:h-28 md:h-36" />
 
       {/* Hero Center Content - Clean, Uncluttered & Breathtaking */}
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-6 text-center flex flex-col items-center my-auto">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-6 text-center flex flex-col items-center my-auto">
         {/* Subtle Minimalist Location Chip */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-forest-dark/85 backdrop-blur-md border border-amber/35 text-white/95 text-[11px] sm:text-xs font-mono uppercase tracking-[0.22em] mb-6 shadow-xl"
+          className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1 sm:py-1.5 rounded-full bg-forest-dark/85 backdrop-blur-md border border-amber/35 text-white/95 text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] mb-3.5 sm:mb-5 shadow-xl"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34D399] animate-pulse" />
           <span className="text-amber-light font-medium">Vythiri • Wayanad • 700m Rainforest Sanctuary</span>
@@ -194,7 +194,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.55 }}
-          className="mt-8 sm:mt-10 w-full max-w-3xl mx-auto rounded-2xl sm:rounded-full bg-forest-dark/85 backdrop-blur-2xl border border-amber/35 p-2 sm:p-2.5 shadow-[0_20px_50px_rgba(8,19,11,0.6)]"
+          className="mt-4 sm:mt-8 w-full max-w-3xl mx-auto rounded-2xl sm:rounded-full bg-forest-dark/85 backdrop-blur-2xl border border-amber/35 p-2 sm:p-2.5 shadow-[0_20px_50px_rgba(8,19,11,0.6)]"
         >
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-left">
             <div className="px-3.5 py-2 rounded-xl bg-white/5 border border-white/5">
@@ -225,7 +225,7 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.6 }}
-        className="relative z-10 pb-6 sm:pb-8 flex flex-col items-center justify-center text-center"
+        className="relative z-10 pb-3 sm:pb-6 flex flex-col items-center justify-center text-center"
       >
         <a
           href="#story"

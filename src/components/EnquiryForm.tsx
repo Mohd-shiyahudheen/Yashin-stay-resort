@@ -82,7 +82,7 @@ _Sent via Yashin Stay Reservation Suite_`;
   )}&body=${encodeURIComponent(generateEnquiryText())}`;
 
   return (
-    <SectionWrapper id="enquiry" className="bg-forest-dark text-mist relative overflow-hidden py-20 sm:py-28" dark>
+    <SectionWrapper id="enquiry" className="bg-forest-dark text-mist relative overflow-hidden py-8 sm:py-16 md:py-20" dark>
       {/* Decorative ambient blurred circles */}
       <div className="absolute top-1/4 -right-32 w-80 h-80 bg-amber/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 -left-32 w-80 h-80 bg-moss/20 rounded-full blur-[140px] pointer-events-none" />
@@ -96,8 +96,8 @@ _Sent via Yashin Stay Reservation Suite_`;
 
       {/* Testimonials Anchor & Verified Guest Trust Strip */}
       <span id="testimonials" className="absolute -top-24 pointer-events-none" />
-      <div className="max-w-xl mx-auto text-center mb-8 px-2">
-        <div className="inline-flex items-center gap-2.5 text-[11px] sm:text-xs font-mono font-semibold text-mist uppercase tracking-wider px-4 sm:px-5 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/15 shadow-sm">
+      <div className="max-w-xl mx-auto text-center mb-5 sm:mb-8 px-2">
+        <div className="inline-flex items-center gap-2.5 text-[11px] sm:text-xs font-mono font-semibold text-mist uppercase tracking-wider px-3.5 sm:px-5 py-1.5 sm:py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/15 shadow-sm">
           <div className="flex items-center gap-0.5 text-amber">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-3.5 h-3.5 fill-amber text-amber" />
@@ -113,7 +113,7 @@ _Sent via Yashin Stay Reservation Suite_`;
       <ScrollReveal className="max-w-3xl mx-auto">
         <form
           onSubmit={handleSubmit}
-          className="bg-white/[0.04] backdrop-blur-2xl border border-white/15 p-5 sm:p-9 md:p-12 rounded-3xl shadow-2xl flex flex-col gap-6 sm:gap-8 relative"
+          className="bg-white/[0.04] backdrop-blur-2xl border border-white/15 p-4 sm:p-7 md:p-10 rounded-3xl shadow-2xl flex flex-col gap-5 sm:gap-8 relative"
         >
           {/* Official Resort Contact Banner */}
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-mist/80 border-b border-white/10 pb-5">

@@ -7,12 +7,12 @@ import { MapPin, ArrowUpRight, Navigation } from "lucide-react";
 
 export function Location() {
   return (
-    <SectionWrapper id="location" className="bg-mist relative overflow-hidden py-14 sm:py-20">
+    <SectionWrapper id="location" className="bg-mist relative overflow-hidden py-8 sm:py-16 md:py-20">
       <SectionHeading
         tag="Resort Location"
         title="Find Your Way to Yashin Stay"
         subtitle="Vythiri, Wayanad, Kerala • Coordinates: 11°32'33.9&quot;N 76°03'05.1&quot;E"
-        className="mb-8 sm:mb-10"
+        className="mb-5 sm:mb-8"
       />
 
       {/* Interactive Google Map Embed Frame */}

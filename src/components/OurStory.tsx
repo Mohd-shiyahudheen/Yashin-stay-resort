@@ -83,7 +83,7 @@ export function OurStory() {
   ];
 
   return (
-    <SectionWrapper id="story" className="bg-mist relative overflow-hidden py-16 sm:py-24">
+    <SectionWrapper id="story" className="bg-mist relative overflow-hidden py-8 sm:py-16 md:py-20">
       {/* Anchor targets for backwards-compatibility */}
       <span id="amenities" className="absolute -top-24 pointer-events-none" />
       <span id="inauguration" className="absolute -top-24 pointer-events-none" />
@@ -93,7 +93,7 @@ export function OurStory() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-moss/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center">
         {/* Left Column: Portrait Video Reel with Phone Bezel */}
         <div className="lg:col-span-5 flex justify-center">
           <ScrollReveal direction="left" className="w-full max-w-[320px] sm:max-w-[360px]">

@@ -36,8 +36,8 @@ export function Stays() {
       />
 
       {/* Property Overview Pill */}
-      <div className="max-w-2xl mx-auto -mt-6 mb-8 text-center px-2">
-        <div className="inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 px-5 py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-forest/15 shadow-sm text-xs font-mono text-forest">
+      <div className="max-w-2xl mx-auto -mt-2 sm:-mt-4 mb-5 sm:mb-8 text-center px-2">
+        <div className="inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-6 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/90 backdrop-blur-md border border-forest/15 shadow-sm text-xs font-mono text-forest">
           <div className="flex items-center gap-1.5 font-semibold text-moss">
             <BedDouble className="w-4 h-4 text-amber" />
             <span>12 Total Rooms</span>
@@ -56,7 +56,7 @@ export function Stays() {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+      <div className="flex flex-wrap items-center justify-center gap-2 mb-6 sm:mb-10">
         {[
           { label: "All Residences", value: "all" },
           { label: "6-Bedroom (Up to 18)", value: "cottage-6" },
@@ -81,7 +81,7 @@ export function Stays() {
         })}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
         {filteredStays.map((stay, idx) => {
           const cottageWaText = encodeURIComponent(
             `Hello Yashin Stay, I am interested in reserving the "${stay.name}" in Vythiri, Wayanad. Please let me know available dates.`

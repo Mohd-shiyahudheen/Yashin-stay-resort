@@ -37,12 +37,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-forest-dark text-mist border-t border-white/10 pt-20 pb-12 relative overflow-hidden">
+    <footer className="bg-forest-dark text-mist border-t border-white/10 pt-10 sm:pt-16 md:pt-20 pb-8 sm:pb-12 relative overflow-hidden">
       {/* Decorative ambient blurred glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-48 bg-moss/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 pb-10 sm:pb-16 border-b border-white/10">
           {/* Brand Column */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>

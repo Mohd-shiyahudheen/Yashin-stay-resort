@@ -19,7 +19,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div
-      className={`mb-12 md:mb-16 ${centered ? "text-center mx-auto" : "text-left"} max-w-3xl ${className}`}
+      className={`mb-6 sm:mb-8 md:mb-14 ${centered ? "text-center mx-auto" : "text-left"} max-w-3xl ${className}`}
     >
       {tag && (
         <div className={`flex items-center gap-2.5 mb-3.5 ${centered ? "justify-center" : "justify-start"}`}>
