@@ -82,7 +82,7 @@ export function OurStory() {
   ];
 
   return (
-    <SectionWrapper id="story" className="bg-mist relative overflow-hidden py-8 sm:py-16 md:py-20">
+    <SectionWrapper id="story" className="bg-[#070F0A] text-mist relative overflow-hidden py-8 sm:py-16 md:py-20" dark>
       {/* Anchor targets for backwards-compatibility */}
       <span id="amenities" className="absolute -top-24 pointer-events-none" />
       <span id="inauguration" className="absolute -top-24 pointer-events-none" />
@@ -96,7 +96,7 @@ export function OurStory() {
         {/* Left Column: Portrait Video Reel with Phone Bezel */}
         <div className="lg:col-span-5 flex justify-center">
           <div className="w-full max-w-[320px] sm:max-w-[360px]">
-            <div className="relative rounded-[2.5rem] p-2.5 sm:p-3 bg-gradient-to-b from-forest/15 via-white/40 to-forest/10 backdrop-blur-2xl border-2 border-amber/40 shadow-[0_20px_50px_rgba(10,20,14,0.18)] group">
+            <div className="relative rounded-[2.5rem] p-2.5 sm:p-3 bg-gradient-to-b from-white/10 via-forest-light/20 to-white/5 backdrop-blur-2xl border-2 border-amber/40 shadow-[0_20px_50px_rgba(0,0,0,0.6)] group">
               <div
                 className="relative aspect-[9/16] w-full rounded-[2rem] overflow-hidden bg-black shadow-inner cursor-pointer"
                 onClick={togglePlay}
@@ -173,30 +173,30 @@ export function OurStory() {
               className="mb-4"
             />
 
-            <div className="space-y-3.5 text-bark/85 text-base sm:text-lg leading-relaxed font-light mb-6">
+            <div className="space-y-3.5 text-mist/85 text-base sm:text-lg leading-relaxed font-light mb-6">
               <p>
                 Tucked into the emerald hillside folds of Vythiri, Wayanad,{" "}
-                <strong className="font-semibold text-forest font-serif text-xl">{siteData.name}</strong> was
+                <strong className="font-semibold text-white font-serif text-xl">{siteData.name}</strong> was
                 crafted for families seeking pure forest tranquility, a large family swimming pool, and understated luxury across 3 hillside cottages.
               </p>
-              <p className="text-sm sm:text-base text-bark/75">
+              <p className="text-sm sm:text-base text-mist/75">
                 From sunny afternoons by the family swimming pool and laughter on the playground swings to golden-hour photoshoots against misty peaks and starlit campfire evenings, every moment is designed for lasting memories.
               </p>
             </div>
 
             {/* Quick Sanctuary Stats Strip */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 p-3 sm:p-4 rounded-2xl bg-white/70 border border-forest/10 text-center shadow-xs">
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-6 p-3 sm:p-4 rounded-2xl bg-white/[0.04] backdrop-blur-md border border-white/10 text-center shadow-lg">
               <div>
-                <span className="block font-serif text-2xl sm:text-3xl font-medium text-forest">12</span>
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-hover font-semibold">Ensuite Rooms</span>
+                <span className="block font-serif text-2xl sm:text-3xl font-medium text-white">12</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-semibold">Ensuite Rooms</span>
               </div>
-              <div className="border-x border-forest/10">
-                <span className="block font-serif text-2xl sm:text-3xl font-medium text-forest">3</span>
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-hover font-semibold">Pool Cottages</span>
+              <div className="border-x border-white/10">
+                <span className="block font-serif text-2xl sm:text-3xl font-medium text-white">3</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-semibold">Pool Cottages</span>
               </div>
               <div>
-                <span className="block font-serif text-2xl sm:text-3xl font-medium text-forest">700m</span>
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-hover font-semibold">Misty Altitude</span>
+                <span className="block font-serif text-2xl sm:text-3xl font-medium text-white">700m</span>
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-amber-light font-semibold">Misty Altitude</span>
               </div>
             </div>
 
@@ -207,22 +207,22 @@ export function OurStory() {
                 return (
                   <div
                     key={pillar.title}
-                    className="flex flex-col gap-1.5 p-3.5 rounded-2xl bg-white/80 border border-forest/10 hover:border-amber/45 hover:bg-white transition-all duration-300 shadow-xs hover:shadow-md group"
+                    className="flex flex-col gap-1.5 p-3.5 rounded-2xl bg-white/[0.04] backdrop-blur-xl border border-white/10 hover:border-amber/45 hover:bg-white/[0.07] hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-xl group"
                   >
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-xl bg-amber/10 border border-amber/25 flex items-center justify-center text-amber-hover shrink-0 group-hover:scale-110 transition-transform">
-                          <IconComponent className="w-4 h-4 text-amber-hover" />
+                        <div className="w-8 h-8 rounded-xl bg-amber/15 border border-amber/30 flex items-center justify-center text-amber shrink-0 group-hover:scale-110 transition-transform">
+                          <IconComponent className="w-4 h-4 text-amber" />
                         </div>
-                        <h4 className="font-serif text-base font-medium text-forest group-hover:text-forest-light transition-colors">
+                        <h4 className="font-serif text-base font-medium text-white group-hover:text-amber-light transition-colors">
                           {pillar.title}
                         </h4>
                       </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-amber-hover font-semibold px-2 py-0.5 rounded-full bg-amber/10 border border-amber/20 shrink-0">
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-amber-light font-semibold px-2 py-0.5 rounded-full bg-amber/15 border border-amber/30 shrink-0">
                         {pillar.tag}
                       </span>
                     </div>
-                    <p className="text-xs text-bark/75 leading-relaxed font-light pl-10">
+                    <p className="text-xs text-mist/70 leading-relaxed font-light pl-10">
                       {pillar.description}
                     </p>
                   </div>
@@ -231,7 +231,7 @@ export function OurStory() {
             </div>
 
             <div className="flex flex-wrap items-center gap-3.5">
-              <CTAButton href="#stays" variant="primary" size="md">
+              <CTAButton href="#stays" variant="luxury" size="md">
                 <span>View Pool Cottages</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </CTAButton>

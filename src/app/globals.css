@@ -26,13 +26,13 @@
 }
 
 :root {
-  --background: #F8F6F0;
-  --foreground: #1C1611;
+  --background: #050A06;
+  --foreground: #F8F6F0;
 }
 
 html {
   scroll-behavior: smooth;
-  color-scheme: light;
+  color-scheme: dark;
   width: 100%;
   overflow-x: hidden;
 }
@@ -84,10 +84,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /* Luxury Glassmorphism */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(223, 186, 115, 0.22);
+  border: 1px solid rgba(223, 186, 115, 0.18);
 }
 
 .glass-panel-dark {

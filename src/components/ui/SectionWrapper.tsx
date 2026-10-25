@@ -14,15 +14,13 @@ export function SectionWrapper({
   className = "",
   containerClassName = "",
   children,
-  dark = false,
+  dark = true,
   style,
 }: SectionWrapperProps) {
   const hasBgClass = /\bbg-/.test(className);
   const defaultBg = hasBgClass
     ? ""
-    : dark
-    ? "bg-forest-dark text-mist"
-    : "bg-mist text-bark";
+    : "bg-forest-dark text-mist";
 
   return (
     <section

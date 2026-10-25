@@ -52,7 +52,7 @@ export function Amenities() {
   const waClean = siteData.contact.whatsapp.replace(/[^0-9]/g, "");
 
   return (
-    <SectionWrapper id="amenities" className="bg-[#FAF8F3] relative overflow-hidden">
+    <SectionWrapper id="amenities" className="bg-forest-dark text-mist relative overflow-hidden" dark>
       {/* Background Ambient Glow */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 bg-amber/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-32 w-96 h-96 bg-moss/10 rounded-full blur-3xl pointer-events-none" />

@@ -6,7 +6,7 @@ import { MapPin, ArrowUpRight, Navigation } from "lucide-react";
 
 export function Location() {
   return (
-    <SectionWrapper id="location" className="bg-mist relative overflow-hidden py-8 sm:py-16 md:py-20">
+    <SectionWrapper id="location" className="bg-[#050A06] text-mist relative overflow-hidden py-8 sm:py-16 md:py-20" dark>
       <SectionHeading
         tag="Resort Location"
         title="Find Your Way to Yashin Stay"
@@ -16,7 +16,7 @@ export function Location() {
 
       {/* Interactive Google Map Embed Frame */}
       <div className="max-w-6xl mx-auto">
-        <div className="relative rounded-3xl overflow-hidden bg-forest-dark border border-forest/15 shadow-2xl">
+        <div className="relative rounded-3xl overflow-hidden bg-forest-dark border border-amber/30 shadow-[0_25px_60px_rgba(0,0,0,0.7)]">
           {/* Top Bar for Map Frame */}
           <div className="px-5 sm:px-8 py-4 bg-forest-dark/95 border-b border-white/10 flex flex-wrap items-center justify-between gap-3 text-white text-xs">
             <div className="flex items-center gap-2.5">
@@ -37,7 +37,7 @@ export function Location() {
               href={siteData.location.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber text-forest-dark font-sans text-xs sm:text-sm font-semibold hover:bg-amber-light transition-all shadow-md hover:shadow-lg active:scale-95"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-amber to-amber-light text-forest-dark font-sans text-xs sm:text-sm font-semibold hover:scale-105 transition-all shadow-md active:scale-95"
             >
               <Navigation className="w-3.5 h-3.5" />
               <span>Open in Google Maps</span>

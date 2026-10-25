@@ -10,7 +10,7 @@ import { FloatingConcierge } from "@/components/FloatingConcierge";
 
 export default function Home() {
   return (
-    <div id="top" className="min-h-screen flex flex-col bg-mist overflow-x-hidden w-full">
+    <div id="top" className="min-h-screen flex flex-col bg-[#050A06] text-mist overflow-x-hidden w-full selection:bg-amber selection:text-forest-dark">
       <Header />
       <main id="main-content" className="flex-1">
         <Hero />

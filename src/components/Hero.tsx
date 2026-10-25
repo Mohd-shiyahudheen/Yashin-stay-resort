@@ -32,9 +32,9 @@ const heroSlides = [
     label: "Tea Plantations",
   },
   {
-    src: "/media/images/gallery-drone-estate.jpg",
+    src: "/media/images/gallery-wildlife-deer.jpg",
     alt: "Wild spotted deer foraging peacefully in the lush rainforest hills of Wayanad",
-    label: "Wild Rainforest",
+    label: "Rainforest Wildlife",
   },
 ];
 
@@ -88,7 +88,7 @@ export function Hero() {
       {/* Subtle Slideshow Indicator Dots */}
       <div className="absolute top-20 sm:top-24 right-4 sm:right-8 z-30 flex items-center gap-2 bg-black/35 backdrop-blur-xl px-3 py-1.5 rounded-full border border-white/15 shadow-xl">
         <span className="text-[10px] font-mono text-amber-light tracking-widest uppercase mr-1 hidden sm:inline font-semibold">
-          {heroSlides[currentSlide].label}
+          {heroSlides[currentSlide]?.label || ""}
         </span>
         <div className="flex items-center gap-1.5">
           {heroSlides.map((slide, idx) => (

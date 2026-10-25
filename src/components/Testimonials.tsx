@@ -30,7 +30,7 @@ export function Testimonials() {
   ];
 
   return (
-    <SectionWrapper id="testimonials" className="bg-mist-light relative overflow-hidden">
+    <SectionWrapper id="testimonials" className="bg-forest-dark text-mist relative overflow-hidden" dark>
       <SectionHeading
         tag="Guest Chronicles"
         title="What Our Guests Say"

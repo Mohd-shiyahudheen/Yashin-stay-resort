@@ -99,7 +99,7 @@ export function Gallery() {
   };
 
   return (
-    <SectionWrapper id="gallery" className="bg-mist relative overflow-hidden">
+    <SectionWrapper id="gallery" className="bg-[#070F0A] text-mist relative overflow-hidden" dark>
       {/* Anchor for experiences */}
       <span id="experiences" className="absolute -top-24 pointer-events-none" />
 
@@ -130,8 +130,8 @@ export function Gallery() {
                 }}
                 className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-mono tracking-wider transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-forest-dark text-amber-light border border-amber/40 shadow-sm font-semibold scale-105"
-                    : "bg-white/80 text-bark/75 hover:text-forest border border-forest/10 hover:border-amber/30"
+                    ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber shadow-lg shadow-amber/25 font-semibold scale-105"
+                    : "bg-white/[0.05] text-mist/75 hover:text-white border border-white/10 hover:border-amber/30"
                 }`}
               >
                 {tab.label}
