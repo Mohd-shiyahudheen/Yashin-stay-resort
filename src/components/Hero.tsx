@@ -27,9 +27,9 @@ const heroSlides = [
     label: "Vythiri Rainforest",
   },
   {
-    src: "/media/images/real-pool-cottage.jpg",
-    alt: "Forest cottage surrounded by tea gardens and misty mountain peaks in Vythiri",
-    label: "Tea Plantations",
+    src: "/media/images/real-opening.jpg",
+    alt: "Grand opening celebration and family gatherings at Yashin Stay in Vythiri, Wayanad",
+    label: "Family Celebrations",
   },
   {
     src: "/media/images/gallery-wildlife-deer.jpg",

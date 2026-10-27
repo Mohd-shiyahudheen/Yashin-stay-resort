@@ -29,7 +29,7 @@ import {
   Compass,
 } from "lucide-react";
 
-type GalleryCategory = "all" | "pool" | "kids" | "evening" | "nature";
+type GalleryCategory = "all" | "resort" | "misty" | "wildlife";
 
 interface FilterTab {
   id: GalleryCategory;
@@ -54,12 +54,15 @@ export function Gallery() {
   // Filter gallery items by category
   const filteredSlides = allSlides.filter((item) => {
     if (activeCategory === "all") return true;
-    if (activeCategory === "pool") return item.category.includes("Pool");
-    if (activeCategory === "kids")
-      return item.category.includes("Kindergarten") || item.category.includes("Family");
-    if (activeCategory === "evening") return item.category.includes("Ambiance");
-    if (activeCategory === "nature")
-      return item.category.includes("Photoshoot") || item.category.includes("Wildlife");
+    if (activeCategory === "resort")
+      return (
+        item.category.includes("Pool") ||
+        item.category.includes("Resort") ||
+        item.category.includes("Ambiance")
+      );
+    if (activeCategory === "misty")
+      return item.category.includes("Photoshoot") || item.category.includes("Nature");
+    if (activeCategory === "wildlife") return item.category.includes("Wildlife");
     return true;
   });
 
@@ -71,32 +74,29 @@ export function Gallery() {
       count: allSlides.length,
     },
     {
-      id: "pool",
-      label: "Pool & Stays",
+      id: "resort",
+      label: "Resort & Cottages",
       icon: Waves,
-      count: allSlides.filter((s) => s.category.includes("Pool")).length,
-    },
-    {
-      id: "kids",
-      label: "Kids & Grounds",
-      icon: Sparkles,
       count: allSlides.filter(
-        (s) => s.category.includes("Kindergarten") || s.category.includes("Family")
+        (s) =>
+          s.category.includes("Pool") ||
+          s.category.includes("Resort") ||
+          s.category.includes("Ambiance")
       ).length,
     },
     {
-      id: "evening",
-      label: "Evening Glow",
-      icon: Sunset,
-      count: allSlides.filter((s) => s.category.includes("Ambiance")).length,
-    },
-    {
-      id: "nature",
-      label: "Misty Vistas",
+      id: "misty",
+      label: "Misty Vistas & Trails",
       icon: TreePine,
       count: allSlides.filter(
-        (s) => s.category.includes("Photoshoot") || s.category.includes("Wildlife")
+        (s) => s.category.includes("Photoshoot") || s.category.includes("Nature")
       ).length,
+    },
+    {
+      id: "wildlife",
+      label: "Sanctuary Wildlife",
+      icon: Sparkles,
+      count: allSlides.filter((s) => s.category.includes("Wildlife")).length,
     },
   ];
 
@@ -142,8 +142,8 @@ export function Gallery() {
       return;
     }
 
-    const interval = 50; // update every 50ms
-    const totalTime = 5000; // 5s per slide
+    const interval = 50;
+    const totalTime = 5000;
     const increment = (interval / totalTime) * 100;
 
     const timer = setInterval(() => {
@@ -170,46 +170,38 @@ export function Gallery() {
   const waClean = siteData.contact.whatsapp.replace(/[^0-9]/g, "");
   const currentCinemaSlide = allSlides[cinemaIndex];
 
-  // Bento layout classes for grid items (based on original array index)
+  // Bento layout classes for grid items (8 unique images)
   const getBentoClasses = (itemIndex: number) => {
     if (activeCategory !== "all") {
-      // In filtered views, use balanced standard cards
       return "col-span-1 h-[320px] sm:h-[360px]";
     }
-    // Dynamic editorial bento rhythm for 'All' views
     switch (itemIndex) {
       case 0:
         // Main pool cottage feature
-        return "col-span-1 sm:col-span-2 lg:col-span-2 row-span-2 h-[420px] sm:h-[500px] lg:h-[560px]";
+        return "col-span-1 sm:col-span-2 lg:col-span-2 row-span-2 h-[420px] sm:h-[480px] lg:h-[530px]";
       case 1:
-        // Swimming pool close-up
-        return "col-span-1 h-[240px] sm:h-[270px]";
+        // Grand opening ceremony
+        return "col-span-1 h-[250px]";
       case 2:
-        // Kids garden
-        return "col-span-1 h-[240px] sm:h-[270px]";
+        // Tropical flora and sconce lighting
+        return "col-span-1 h-[250px]";
       case 3:
-        // Evening warm sconces
-        return "col-span-1 h-[340px] sm:h-[380px]";
-      case 4:
         // Wayanad Ghats wide panoramic view
-        return "col-span-1 sm:col-span-2 lg:col-span-2 h-[340px] sm:h-[380px]";
-      case 5:
+        return "col-span-1 sm:col-span-2 h-[320px] sm:h-[350px]";
+      case 4:
         // Misty sunbeams
-        return "col-span-1 h-[300px] sm:h-[340px]";
-      case 6:
+        return "col-span-1 h-[320px] sm:h-[350px]";
+      case 5:
         // Canopy avenue
-        return "col-span-1 h-[300px] sm:h-[340px]";
-      case 7:
-        // Grand opening / family gathering
-        return "col-span-1 sm:col-span-2 lg:col-span-1 h-[300px] sm:h-[340px]";
-      case 8:
-        // Heliconia detail
-        return "col-span-1 h-[300px] sm:h-[340px]";
-      case 9:
+        return "col-span-1 h-[320px] sm:h-[350px]";
+      case 6:
         // Wildlife deer
-        return "col-span-1 sm:col-span-2 lg:col-span-2 h-[300px] sm:h-[340px]";
+        return "col-span-1 h-[320px] sm:h-[350px]";
+      case 7:
+        // Wildlife monkey
+        return "col-span-1 h-[320px] sm:h-[350px]";
       default:
-        return "col-span-1 h-[300px]";
+        return "col-span-1 h-[320px]";
     }
   };
 
@@ -224,9 +216,9 @@ export function Gallery() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber/20 to-transparent" />
 
       <SectionHeading
-        tag="Visual Gallery • 10 Moments of Yashin Stay"
+        tag="Sanctuary Perspectives • 8 Authentic Scenes"
         title="Sanctuary in Frames"
-        subtitle="Immerse yourself in authentic resort perspectives — the sparkling family pool, two-story stone cottages, kids play lawns, starlit evening pathways, and misty mountain viewpoints."
+        subtitle="Immerse yourself in authentic resort perspectives — the sparkling family pool, two-story stone cottages, grand family celebrations, starlit evening pathways, and misty mountain viewpoints."
       />
 
       <div className="max-w-6xl mx-auto">
