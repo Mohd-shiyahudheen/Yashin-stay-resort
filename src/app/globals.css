@@ -82,7 +82,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg);
 }
 
-/* Luxury Glassmorphism */
+/* ========================================
+   LUXURY GLASSMORPHISM
+   ======================================== */
 .glass-panel {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
@@ -104,25 +106,52 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border: 1px solid rgba(223, 186, 115, 0.3);
 }
 
-/* Luxury Metallic Gold Text */
+/* ========================================
+   LUXURY GRADIENT TEXT
+   ======================================== */
 .gold-text-gradient {
   background: linear-gradient(135deg, #FFFFFF 0%, #FDF3DC 25%, #DFBA73 60%, #C5A059 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gold-text-gradient-vivid {
+  background: linear-gradient(135deg, #FFF5DC 0%, #F5D78E 30%, #DFBA73 60%, #C5A059 85%, #B08230 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .gold-border-gradient {
   border-image: linear-gradient(to right, rgba(223, 186, 115, 0.7), rgba(255, 255, 255, 0.3), rgba(223, 186, 115, 0.7)) 1;
 }
 
-/* Gold shimmer animation */
+/* ========================================
+   GLOW EFFECTS
+   ======================================== */
+.glow-amber {
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.35), 0 0 60px rgba(197, 160, 89, 0.15);
+}
+
+.glow-amber-lg {
+  box-shadow: 0 0 30px rgba(197, 160, 89, 0.5), 0 0 80px rgba(197, 160, 89, 0.25), 0 0 120px rgba(197, 160, 89, 0.1);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.4), 0 0 50px rgba(52, 211, 153, 0.15);
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 20px rgba(223, 186, 115, 0.6), 0 0 40px rgba(197, 160, 89, 0.3);
+}
+
+/* ========================================
+   SHIMMER ANIMATION
+   ======================================== */
 @keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .animate-shimmer {
@@ -136,63 +165,297 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   animation: shimmer 3.5s infinite linear;
 }
 
-/* Subtle float animation */
+/* Button light sweep */
+@keyframes light-sweep {
+  0% { transform: skewX(-12deg) translateX(-100%); }
+  100% { transform: skewX(-12deg) translateX(400%); }
+}
+
+.animate-light-sweep {
+  animation: light-sweep 2.5s ease-in-out infinite;
+}
+
+/* ========================================
+   FLOAT ANIMATION
+   ======================================== */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(1deg); }
+  66% { transform: translateY(-3px) rotate(-0.5deg); }
 }
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
 
-/* Delicate hairline pulse for live indicators */
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+/* ========================================
+   GENTLE PULSE
+   ======================================== */
 @keyframes gentle-pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1.08);
-  }
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.08); }
 }
 
 .animate-gentle-pulse {
   animation: gentle-pulse 2.5s ease-in-out infinite;
 }
 
-/* Custom luxury dark & gold scrollbar */
+/* ========================================
+   AURORA / AMBIENT GLOW ANIMATIONS
+   ======================================== */
+@keyframes aurora-drift {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translate(5%, -8%) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-3%, 5%) scale(0.95);
+    opacity: 0.35;
+  }
+  75% {
+    transform: translate(8%, 3%) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+@keyframes aurora-drift-reverse {
+  0%, 100% {
+    transform: translate(0%, 0%) scale(1);
+    opacity: 0.35;
+  }
+  25% {
+    transform: translate(-6%, 5%) scale(1.08);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(4%, -6%) scale(0.92);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translate(-5%, -2%) scale(1.05);
+    opacity: 0.55;
+  }
+}
+
+.animate-aurora {
+  animation: aurora-drift 18s ease-in-out infinite;
+}
+
+.animate-aurora-reverse {
+  animation: aurora-drift-reverse 22s ease-in-out infinite;
+}
+
+/* ========================================
+   PARTICLE FLOAT
+   ======================================== */
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0px) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateY(90vh) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(-20px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.animate-particle {
+  animation: particle-float linear infinite;
+}
+
+/* ========================================
+   BORDER GLOW PULSE
+   ======================================== */
+@keyframes border-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0), inset 0 0 0 1px rgba(197, 160, 89, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(197, 160, 89, 0.15), inset 0 0 0 1px rgba(197, 160, 89, 0.5);
+  }
+}
+
+.animate-border-glow {
+  animation: border-glow-pulse 3s ease-in-out infinite;
+}
+
+/* ========================================
+   COUNTER ANIMATION
+   ======================================== */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0px); }
+}
+
+.animate-count-in {
+  animation: count-up 0.6s ease-out forwards;
+}
+
+/* ========================================
+   GRADIENT ROTATE (HALO RING)
+   ======================================== */
+@keyframes rotate-halo {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-rotate-halo {
+  animation: rotate-halo 8s linear infinite;
+}
+
+/* ========================================
+   SLIDE IN ANIMATIONS
+   ======================================== */
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-slide-in-up {
+  animation: slide-in-up 0.7s ease-out forwards;
+}
+
+.animate-fade-scale-in {
+  animation: fade-scale-in 0.5s ease-out forwards;
+}
+
+/* ========================================
+   SECTION REVEAL
+   ======================================== */
+@keyframes reveal-section {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.reveal-on-scroll {
+  animation: reveal-section 0.8s ease-out forwards;
+}
+
+/* ========================================
+   TEXT LETTER SPACING PULSE
+   ======================================== */
+@keyframes tracking-pulse {
+  0%, 100% { letter-spacing: 0.25em; }
+  50% { letter-spacing: 0.35em; }
+}
+
+.animate-tracking-pulse {
+  animation: tracking-pulse 4s ease-in-out infinite;
+}
+
+/* ========================================
+   STAR TWINKLE
+   ======================================== */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.animate-twinkle {
+  animation: twinkle ease-in-out infinite;
+}
+
+/* ========================================
+   FANCY INPUT FOCUS GLOW
+   ======================================== */
+.input-luxury {
+  transition: all 0.3s ease;
+}
+
+.input-luxury:focus {
+  box-shadow: 0 0 0 2px rgba(197, 160, 89, 0.3), 0 0 20px rgba(197, 160, 89, 0.15);
+  border-color: rgba(197, 160, 89, 0.7) !important;
+}
+
+/* ========================================
+   CARD HOVER EFFECTS
+   ======================================== */
+.card-luxury {
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-luxury:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 25px 60px rgba(8, 19, 11, 0.6), 0 0 30px rgba(197, 160, 89, 0.12);
+}
+
+/* ========================================
+   LUXURY SCROLLBAR
+   ======================================== */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #050A06;
 }
 ::-webkit-scrollbar-thumb {
-  background: #C5A059;
+  background: linear-gradient(to bottom, #C5A059, #DFBA73);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #DFBA73;
+  background: linear-gradient(to bottom, #DFBA73, #F5D78E);
 }
 
-/* Accessible focus ring */
+/* ========================================
+   FOCUS RING & SELECTION
+   ======================================== */
 :focus-visible {
   outline: 2px solid #C89B3C;
   outline-offset: 3px;
+  border-radius: 4px;
 }
 
-/* Text selection */
 ::selection {
   background-color: #D4A346;
   color: #0B1710;
 }
 
+/* ========================================
+   REDUCED MOTION SAFETY
+   ======================================== */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
     animation-duration: 0.01ms !important;
@@ -202,3 +465,56 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 }
 
+/* ========================================
+   SECTION DIVIDERS
+   ======================================== */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(197, 160, 89, 0.3), transparent);
+}
+
+/* ========================================
+   NOISE OVERLAY TEXTURE
+   ======================================== */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ========================================
+   LUXURY BADGE
+   ======================================== */
+.luxury-badge {
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.15), rgba(223, 186, 115, 0.08));
+  border: 1px solid rgba(223, 186, 115, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+/* ========================================
+   NAVIGATION UNDERLINE EFFECT
+   ======================================== */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #DFBA73, transparent);
+  transition: width 0.3s ease;
+}
+
+.nav-link-underline:hover::after {
+  width: 80%;
+}

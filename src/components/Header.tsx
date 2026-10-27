@@ -87,11 +87,10 @@ export function Header() {
           initial={{ y: -25, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`pointer-events-auto mx-auto max-w-6xl w-full flex items-center justify-between rounded-full transition-all duration-500 ${
-            isScrolled
+          className={`pointer-events-auto mx-auto max-w-6xl w-full flex items-center justify-between rounded-full transition-all duration-500 ${isScrolled
               ? "bg-forest-dark/92 backdrop-blur-2xl border border-amber/30 shadow-[0_18px_50px_rgba(8,19,11,0.7)] py-2 sm:py-2.5 px-3.5 sm:px-6"
               : "bg-forest-dark/75 backdrop-blur-xl border border-amber/20 shadow-[0_10px_35px_rgba(8,19,11,0.4)] py-2 sm:py-3 px-3.5 sm:px-6"
-          }`}
+            }`}
         >
           {/* Brand Logo - Clear & Properly Proportioned */}
           <Link
@@ -127,19 +126,17 @@ export function Header() {
                   href={link.href}
                   onMouseEnter={() => setHoveredNav(link.href)}
                   onMouseLeave={() => setHoveredNav(null)}
-                  className={`relative px-3.5 py-1.5 rounded-full transition-colors duration-200 cursor-pointer ${
-                    isActive ? "text-amber font-semibold" : "text-white/85 hover:text-white"
-                  }`}
+                  className={`relative px-3.5 py-1.5 rounded-full transition-colors duration-200 cursor-pointer ${isActive ? "text-amber font-semibold" : "text-white/85 hover:text-white"
+                    }`}
                 >
                   {/* Sliding Pill Background on Hover or Active */}
                   {(isHovered || isActive) && (
                     <motion.span
                       layoutId="navTabIndicator"
-                      className={`absolute inset-0 rounded-full -z-10 ${
-                        isActive
+                      className={`absolute inset-0 rounded-full -z-10 ${isActive
                           ? "bg-amber/15 border border-amber/30"
                           : "bg-white/10"
-                      }`}
+                        }`}
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}

@@ -87,11 +87,17 @@ _Sent via Yashin Stay Reservation Suite_`;
     `Reservation Enquiry - ${formData.name || siteData.name}`
   )}&body=${encodeURIComponent(generateEnquiryText())}`;
 
+  const inputBase = "w-full px-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white placeholder-white/35 focus:outline-none transition-all text-sm font-sans input-luxury";
+
   return (
     <SectionWrapper id="enquiry" className="bg-forest-dark text-mist relative overflow-hidden py-8 sm:py-16 md:py-20" dark>
-      {/* Decorative ambient blurred circles */}
-      <div className="absolute top-1/4 -right-32 w-80 h-80 bg-amber/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 -left-32 w-80 h-80 bg-moss/20 rounded-full blur-[140px] pointer-events-none" />
+      {/* Ambient orbs */}
+      <div className="absolute top-1/4 -right-32 w-96 h-96 bg-amber/12 rounded-full blur-[150px] pointer-events-none animate-aurora" />
+      <div className="absolute bottom-10 -left-32 w-96 h-96 bg-moss/20 rounded-full blur-[150px] pointer-events-none animate-aurora-reverse" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-32 bg-amber/6 blur-[80px] pointer-events-none" />
+
+      {/* Top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber/25 to-transparent" />
 
       <SectionHeading
         tag="Direct Reservation Suite"
@@ -100,10 +106,12 @@ _Sent via Yashin Stay Reservation Suite_`;
         dark
       />
 
-      {/* Testimonials Anchor & Verified Guest Trust Strip */}
+      {/* Testimonials anchor */}
       <span id="testimonials" className="absolute -top-24 pointer-events-none" />
-      <div className="max-w-xl mx-auto text-center mb-5 sm:mb-8 px-2">
-        <div className="inline-flex items-center gap-2.5 text-[11px] sm:text-xs font-mono font-semibold text-mist uppercase tracking-wider px-3.5 sm:px-5 py-1.5 sm:py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/15 shadow-sm">
+
+      {/* Trust strip */}
+      <div className="max-w-xl mx-auto text-center mb-6 sm:mb-10 px-2">
+        <div className="inline-flex items-center gap-2.5 text-[11px] sm:text-xs font-mono font-semibold text-mist uppercase tracking-wider px-4 sm:px-5 py-2 bg-white/[0.08] backdrop-blur-md rounded-full border border-amber/25 shadow-[0_0_20px_rgba(197,160,89,0.08)]">
           <div className="flex items-center gap-0.5 text-amber">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="w-3.5 h-3.5 fill-amber text-amber" />
@@ -116,15 +124,22 @@ _Sent via Yashin Stay Reservation Suite_`;
         </div>
       </div>
 
+      {/* Form */}
       <div className="max-w-3xl mx-auto w-full min-w-0">
         <form
           onSubmit={handleSubmit}
-          className="bg-white/[0.04] backdrop-blur-2xl border border-white/15 p-4 sm:p-7 md:p-10 rounded-3xl shadow-2xl flex flex-col gap-5 sm:gap-8 relative w-full min-w-0 overflow-hidden box-border"
+          className="bg-white/[0.03] backdrop-blur-2xl border border-white/12 p-5 sm:p-7 md:p-10 rounded-3xl shadow-[0_30px_80px_rgba(0,0,0,0.5),0_0_40px_rgba(197,160,89,0.04)] flex flex-col gap-6 sm:gap-8 relative w-full min-w-0 overflow-hidden box-border"
         >
-          {/* Official Resort Contact Banner */}
+          {/* Form shimmer top accent */}
+          <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber/40 to-transparent" />
+
+          {/* Contact Banner */}
           <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-mist/80 border-b border-white/10 pb-5">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+              </span>
               <span className="text-xs">
                 Direct WhatsApp Concierge: <strong className="text-amber">{siteData.contact.whatsapp}</strong>
               </span>
@@ -135,7 +150,7 @@ _Sent via Yashin Stay Reservation Suite_`;
             </div>
           </div>
 
-          {/* Stay Type Choice Chips */}
+          {/* Stay Type Chips */}
           <div>
             <label className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-3 font-bold">
               1. Select Preferred Dwelling
@@ -148,17 +163,20 @@ _Sent via Yashin Stay Reservation Suite_`;
                     key={opt.value}
                     type="button"
                     onClick={() => setFormData((prev) => ({ ...prev, stayType: opt.value }))}
-                    className={`flex flex-col justify-between p-4 rounded-2xl text-left border transition-all duration-300 cursor-pointer ${
+                    className={`flex flex-col justify-between p-4 rounded-2xl text-left border transition-all duration-300 cursor-pointer relative overflow-hidden ${
                       isSelected
-                        ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber shadow-lg shadow-amber/25 font-bold scale-102"
-                        : "bg-white/[0.06] hover:bg-white/[0.1] text-white border-white/15 hover:border-amber/40"
+                        ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-transparent shadow-[0_0_25px_rgba(197,160,89,0.4)] font-bold scale-[1.02]"
+                        : "bg-white/[0.05] hover:bg-white/[0.08] text-white border-white/15 hover:border-amber/40 hover:shadow-[0_0_15px_rgba(197,160,89,0.1)]"
                     }`}
                   >
-                    <div className="flex items-center justify-between w-full mb-1">
+                    {isSelected && (
+                      <span className="absolute inset-0 animate-shimmer pointer-events-none" />
+                    )}
+                    <div className="flex items-center justify-between w-full mb-1 relative z-10">
                       <span className="text-xs sm:text-sm font-semibold">{opt.label}</span>
                       {isSelected && <CheckCircle2 className="w-4 h-4 text-forest-dark shrink-0 ml-1" />}
                     </div>
-                    <span className={`text-[11px] font-mono ${isSelected ? "text-forest-dark/90 font-bold" : "text-amber-light font-semibold"}`}>
+                    <span className={`text-[11px] font-mono relative z-10 ${isSelected ? "text-forest-dark/90 font-bold" : "text-amber-light font-semibold"}`}>
                       {opt.subtitle}
                     </span>
                   </button>
@@ -167,13 +185,10 @@ _Sent via Yashin Stay Reservation Suite_`;
             </div>
           </div>
 
-          {/* Guest Name & Phone */}
+          {/* Name & Phone */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             <div>
-              <label
-                htmlFor="name"
-                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
-              >
+              <label htmlFor="name" className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold">
                 Full Name *
               </label>
               <div className="relative">
@@ -186,16 +201,13 @@ _Sent via Yashin Stay Reservation Suite_`;
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="e.g. Rahul Sharma"
-                  className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white placeholder-white/40 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm font-sans"
+                  className={`${inputBase} pl-11 pr-4`}
                 />
               </div>
             </div>
 
             <div>
-              <label
-                htmlFor="phone"
-                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
-              >
+              <label htmlFor="phone" className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold">
                 WhatsApp Number *
               </label>
               <div className="relative">
@@ -208,7 +220,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+91 98765 43210"
-                  className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white placeholder-white/40 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm font-sans"
+                  className={`${inputBase} pl-11 pr-4`}
                 />
               </div>
             </div>
@@ -217,10 +229,7 @@ _Sent via Yashin Stay Reservation Suite_`;
           {/* Dates & Guests */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 w-full min-w-0">
             <div className="w-full min-w-0">
-              <label
-                htmlFor="checkIn"
-                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
-              >
+              <label htmlFor="checkIn" className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold">
                 Check-in Date
               </label>
               <div className="relative w-full min-w-0">
@@ -231,16 +240,13 @@ _Sent via Yashin Stay Reservation Suite_`;
                   min={todayStr || undefined}
                   value={formData.checkIn}
                   onChange={handleChange}
-                  className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
+                  className={`${inputBase} cursor-pointer [color-scheme:dark]`}
                 />
               </div>
             </div>
 
             <div className="w-full min-w-0">
-              <label
-                htmlFor="checkOut"
-                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
-              >
+              <label htmlFor="checkOut" className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold">
                 Check-out Date
               </label>
               <div className="relative w-full min-w-0">
@@ -251,16 +257,13 @@ _Sent via Yashin Stay Reservation Suite_`;
                   min={formData.checkIn || todayStr || undefined}
                   value={formData.checkOut}
                   onChange={handleChange}
-                  className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm [color-scheme:dark] cursor-pointer"
+                  className={`${inputBase} cursor-pointer [color-scheme:dark]`}
                 />
               </div>
             </div>
 
             <div className="w-full min-w-0">
-              <label
-                htmlFor="guests"
-                className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold"
-              >
+              <label htmlFor="guests" className="block text-xs uppercase font-mono tracking-wider text-amber-light mb-2 font-semibold">
                 Guests
               </label>
               <select
@@ -268,7 +271,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                 name="guests"
                 value={formData.guests}
                 onChange={handleChange}
-                className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-[#08130B] border border-white/20 text-white focus:border-amber focus:outline-none transition-all text-sm cursor-pointer font-sans"
+                className="w-full max-w-full min-w-0 box-border block px-4 py-3.5 rounded-2xl bg-[#08130B] border border-white/20 text-white focus:border-amber/70 focus:outline-none transition-all text-sm cursor-pointer font-sans input-luxury"
               >
                 <option value="1-2 Adults">1-2 Adults</option>
                 <option value="2 Adults + 1 Child">2 Adults + 1 Child</option>
@@ -280,8 +283,8 @@ _Sent via Yashin Stay Reservation Suite_`;
             </div>
           </div>
 
-          {/* Direct Host Reservation Privileges */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-amber/10 border border-amber/30 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          {/* Tariff Panel */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-amber/10 to-amber/5 border border-amber/30 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
             <div>
               <span className="text-[10px] font-mono uppercase tracking-widest text-amber font-semibold block">
                 Direct Host Confirmation • Best Seasonal Rates
@@ -290,7 +293,7 @@ _Sent via Yashin Stay Reservation Suite_`;
                 <span className="text-xl sm:text-2xl font-serif text-white font-medium">
                   Tariff on Request
                 </span>
-                <span className="text-xs font-mono text-mist/75">
+                <span className="text-xs font-mono text-mist/70">
                   ({nights} {nights === 1 ? "night" : "nights"} duration)
                 </span>
               </div>
@@ -309,10 +312,7 @@ _Sent via Yashin Stay Reservation Suite_`;
           {/* Special Requests */}
           <div>
             <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-              <label
-                htmlFor="message"
-                className="block text-xs uppercase font-mono tracking-wider text-amber-light font-semibold"
-              >
+              <label htmlFor="message" className="block text-xs uppercase font-mono tracking-wider text-amber-light font-semibold">
                 Special Requests & Preferred Amenities
               </label>
               <span className="text-[11px] text-amber-light font-mono font-medium">
@@ -320,7 +320,7 @@ _Sent via Yashin Stay Reservation Suite_`;
               </span>
             </div>
 
-            {/* Quick Preference / Feature Badges */}
+            {/* Preference Badges */}
             <div className="flex flex-wrap gap-2 mb-3">
               {[
                 "Family Pool & Kids Splash",
@@ -351,10 +351,10 @@ _Sent via Yashin Stay Reservation Suite_`;
                         }
                       });
                     }}
-                    className={`text-xs px-3 py-1.5 rounded-full transition-all cursor-pointer font-sans border ${
+                    className={`text-xs px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer font-sans border ${
                       isSelected
-                        ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-amber font-bold shadow-md"
-                        : "bg-white/[0.06] border-white/20 text-white hover:bg-white/[0.12] hover:border-amber/50 font-medium"
+                        ? "bg-gradient-to-r from-amber to-amber-light text-forest-dark border-transparent font-bold shadow-[0_0_15px_rgba(197,160,89,0.35)] scale-105"
+                        : "bg-white/[0.06] border-white/20 text-white hover:bg-white/[0.1] hover:border-amber/40 font-medium"
                     }`}
                   >
                     {isSelected ? `✓ ${badge}` : `+ ${badge}`}
@@ -371,34 +371,37 @@ _Sent via Yashin Stay Reservation Suite_`;
                 value={formData.message}
                 onChange={handleChange}
                 placeholder="e.g. Family with kids, photoshoot guide, barbecue setup, arrival time..."
-                className="w-full px-4 py-3.5 rounded-2xl bg-white/[0.06] border border-white/20 text-white placeholder-white/40 focus:border-amber focus:bg-white/10 focus:outline-none transition-all text-sm resize-none font-sans"
+                className={`${inputBase} resize-none`}
               />
             </div>
           </div>
 
-          {/* Submission Action with Shimmer Button */}
-          <div className="pt-2 flex flex-col gap-4">
+          {/* Submit */}
+          <div className="pt-1 flex flex-col gap-4">
             <CTAButton
               type="submit"
               variant="luxury"
               size="lg"
-              className="w-full text-sm sm:text-base font-bold shadow-[0_6px_30px_rgba(212,163,70,0.4)]"
+              className="w-full text-sm sm:text-base font-bold shadow-[0_6px_30px_rgba(212,163,70,0.4)] hover:shadow-[0_10px_40px_rgba(212,163,70,0.55)]"
             >
               <Sparkles className="w-4 h-4" />
               <span>Confirm & Send Reservation via WhatsApp</span>
             </CTAButton>
 
-            <div className="flex items-center justify-center gap-2 text-xs text-mist/60 font-mono">
+            <div className="flex items-center justify-center gap-2 text-xs text-mist/55 font-mono">
               <Mail className="w-3.5 h-3.5 text-amber" />
               <span>Prefer email enquiry?</span>
               <a
                 href={mailtoLink}
-                className="text-amber-light hover:underline font-medium ml-1"
+                className="text-amber-light hover:text-amber hover:underline font-medium ml-1 transition-colors"
               >
                 Send via Email →
               </a>
             </div>
           </div>
+
+          {/* Form bottom accent */}
+          <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-amber/25 to-transparent" />
         </form>
       </div>
     </SectionWrapper>
