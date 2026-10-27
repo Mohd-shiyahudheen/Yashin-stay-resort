@@ -20,7 +20,7 @@ export function getLodgingSchema() {
       latitude: "11.542740",
       longitude: "76.051415",
     },
-    image: "/media/images/og-image.jpg",
+    image: "/media/images/real-pool-cottage.jpg",
     amenityFeature: [
       "Family Swimming Pool with Kids Splash Zone",
       "Kindergarten & Children's Nature Play Park",

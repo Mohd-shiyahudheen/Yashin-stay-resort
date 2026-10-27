@@ -33,7 +33,7 @@ export const siteData = {
       tagline: "Crystal Mountain Springs • Kids Safe Splash Zone",
       description:
         "An expansive freshwater swimming pool enveloped by towering rainforest canopies and granite hill slopes. Designed thoughtfully for all generations with dedicated shallow splash zones for toddlers and children, cushioned sun lounger decks, and direct veranda access from your cottage.",
-      image: "/media/images/gallery-real-swimming.jpg",
+      image: "/media/images/real-pool-cottage.jpg",
       badge: "Signature Amenity",
       highlights: [
         "Dedicated shallow splash zone for kids & toddlers",
@@ -49,7 +49,7 @@ export const siteData = {
       tagline: "Safe Outdoor Playground • Swings, Slides & Lawn Games",
       description:
         "A joyful, secure open-air kindergarten wonderland designed for our youngest guests. Nestled upon lush manicured soft turf lawns, children can enjoy classic swings, playful slides, obstacle logs, badminton, and supervised nature discovery in a protected forest sanctuary.",
-      image: "/media/images/gallery-real-garden.jpg",
+      image: "/media/images/real-opening.jpg",
       badge: "Family & Kids Favorite",
       highlights: [
         "Playground with wooden swings & gentle slides",
@@ -81,7 +81,7 @@ export const siteData = {
       tagline: "Warm Twilight Glow • Starlit Bonfire • Candlelit Dinners",
       description:
         "As dusk descends upon the Wayanad hills, Yashin Stay transforms into an ethereal wonderland. Warm brass architectural sconces cast a golden amber glow across stone paths, the cool mountain breeze carries cardamom aromas, and a crackling bonfire with starlit music sets the mood for unforgettable evenings.",
-      image: "/media/images/gallery-real-lighting.jpg",
+      image: "/media/images/real-detail.jpg",
       badge: "Evening Magic",
       highlights: [
         "Warm brass architectural sconces & lantern-lit garden paths",

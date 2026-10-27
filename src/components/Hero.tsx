@@ -7,7 +7,7 @@ import { ChevronDown, ArrowRight, Leaf, Star, Wind } from "lucide-react";
 
 const heroSlides = [
   {
-    src: "/media/images/gallery-real-pool.jpg",
+    src: "/media/images/real-pool-cottage.jpg",
     alt: "Yashin Stay authentic two-story cottage and family swimming pool in Wayanad",
     label: "Pool Cottage",
   },
