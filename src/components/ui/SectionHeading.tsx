@@ -16,7 +16,6 @@ export function SectionHeading({
   subtitle,
   tag,
   centered = true,
-  dark = true,
   className = "",
 }: SectionHeadingProps) {
   const ref = useRef<HTMLDivElement>(null);

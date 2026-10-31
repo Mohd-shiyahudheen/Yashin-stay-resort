@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     siteName: siteData.name,
     images: [
       {
-        url: "/media/images/real-pool-cottage.jpg",
-        width: 1200,
-        height: 630,
-        alt: `${siteData.name} — Wayanad Jungle Resort`,
+        url: "/media/images/villa-twilight-facade.jpeg",
+        width: 1280,
+        height: 854,
+        alt: `${siteData.name} — Wayanad Jungle Resort & Family Pool`,
       },
     ],
     locale: "en_IN",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteData.name} — Jungle Retreat in Wayanad, Kerala`,
     description: siteData.description,
-    images: ["/media/images/real-pool-cottage.jpg"],
+    images: ["/media/images/villa-twilight-facade.jpeg"],
   },
   icons: {
     icon: [

@@ -1,40 +1,40 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ArrowRight, Leaf, Star, Wind } from "lucide-react";
+import { motion } from "framer-motion";
+import { ChevronDown, ArrowRight, Leaf, Star } from "lucide-react";
 
 const heroSlides = [
   {
-    src: "/media/images/real-pool-cottage.jpg",
-    alt: "Yashin Stay authentic two-story cottage and family swimming pool in Wayanad",
-    label: "Pool Cottage",
+    src: "/media/images/pool-night-illuminated.jpeg",
+    alt: "Yashin Stay sparkling family pool illuminated with underwater lights and cottage views at night in Vythiri, Wayanad",
+    label: "Night Pool & Villas",
   },
   {
-    src: "/media/images/hero-misty-morning.jpg",
-    alt: "Misty morning sunbeams filtering through ancient rainforest trees in Vythiri, Wayanad",
-    label: "Misty Sunbeams",
+    src: "/media/images/pool-day-sunny.jpeg",
+    alt: "Sunny daytime perspective of the crystal swimming pool, sun lounger deck, and rainforest slopes at Yashin Stay",
+    label: "Mountain Spring Pool",
   },
   {
-    src: "/media/images/hero-canopy-avenue.jpg",
-    alt: "Canopy trail lined with majestic forest trees and fallen red blossoms in Wayanad",
-    label: "Canopy Trail",
+    src: "/media/images/villa-twilight-facade.jpeg",
+    alt: "Yashin Stay hillside villa entrance illuminated at twilight with neon logo and mountain jeep",
+    label: "Sanctuary Entrance",
   },
   {
-    src: "/media/images/gallery-wayanad-ghats.jpg",
-    alt: "Misty Vythiri ghats rainforest mountain road and emerald canopy in Wayanad",
-    label: "Vythiri Rainforest",
+    src: "/media/images/bedroom-suite-wide.jpeg",
+    alt: "Spacious luxury bedroom suite with handcrafted king bed, desk, and warm ambient lighting at Yashin Stay",
+    label: "Luxury Bedrooms",
   },
   {
-    src: "/media/images/real-opening.jpg",
-    alt: "Grand opening celebration and family gatherings at Yashin Stay in Vythiri, Wayanad",
-    label: "Family Celebrations",
+    src: "/media/images/aerial-resort-pool.jpeg",
+    alt: "High-angle view of family pool, kindergarten play lawn, natural rock formations, and mountain rainforest canopy",
+    label: "Forest Sanctuary",
   },
   {
-    src: "/media/images/gallery-wildlife-deer.jpg",
-    alt: "Wild spotted deer foraging peacefully in the lush rainforest hills of Wayanad",
-    label: "Rainforest Wildlife",
+    src: "/media/images/cottage-twilight-wing.jpeg",
+    alt: "Contemporary two-story cottage wing at dusk with viewing balcony, indoor glass lounge, and outdoor games terrace",
+    label: "Hillside Cottages",
   },
 ];
 
@@ -62,7 +62,6 @@ const particles = [
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [prevSlide, setPrevSlide] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -72,11 +71,10 @@ export function Hero() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setPrevSlide(currentSlide);
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
     }, 5500);
     return () => clearInterval(timer);
-  }, [currentSlide]);
+  }, []);
 
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-between overflow-hidden bg-forest-dark">

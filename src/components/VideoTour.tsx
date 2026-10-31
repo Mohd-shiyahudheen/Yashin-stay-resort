@@ -5,6 +5,7 @@ import { siteData } from "@/data/siteData";
 import { SectionWrapper } from "./ui/SectionWrapper";
 import { ScrollReveal } from "./ui/ScrollReveal";
 import { CTAButton } from "./ui/CTAButton";
+import { ReelModal } from "./ReelModal";
 import {
   Volume2,
   VolumeX,
@@ -15,42 +16,104 @@ import {
   CheckCircle2,
   MessageCircle,
   Smartphone,
+  Maximize2,
 } from "lucide-react";
 
 export function VideoTour() {
   const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isReelModalOpen, setIsReelModalOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  // Guarantee always playing muted
+  // Bulletproof autoplay and user-interaction listener
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        // Fallback if browser blocks
-        setIsPlaying(false);
-      });
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Direct DOM property enforcement for browser autoplay policy
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const attemptPlay = () => {
+      video.muted = true;
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Retrying once muted if policy restricted
+            video.muted = true;
+            video.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+          });
+      }
+    };
+
+    video.addEventListener("canplay", attemptPlay);
+    video.addEventListener("loadeddata", attemptPlay);
+
+    if (video.readyState >= 2) {
+      attemptPlay();
     }
+
+    // IntersectionObserver to auto-play when in viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            attemptPlay();
+          } else {
+            video.pause();
+            setIsPlaying(false);
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    // Passive listener for first user touch/click/scroll to guarantee playback
+    const handleGesture = () => {
+      if (video.paused) {
+        attemptPlay();
+      }
+    };
+    window.addEventListener("pointerdown", handleGesture, { once: true, passive: true });
+    window.addEventListener("scroll", handleGesture, { once: true, passive: true });
+
+    return () => {
+      video.removeEventListener("canplay", attemptPlay);
+      video.removeEventListener("loadeddata", attemptPlay);
+      observer.disconnect();
+      window.removeEventListener("pointerdown", handleGesture);
+      window.removeEventListener("scroll", handleGesture);
+    };
   }, []);
 
   const toggleSound = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if (videoRef.current) {
+    const video = videoRef.current;
+    if (video) {
       const nextMuted = !isMuted;
-      videoRef.current.muted = nextMuted;
+      video.muted = nextMuted;
       setIsMuted(nextMuted);
+      if (video.paused) {
+        video.play().then(() => setIsPlaying(true)).catch(() => {});
+      }
     }
   };
 
   const togglePlay = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsPlaying(true);
+    const video = videoRef.current;
+    if (video) {
+      if (video.paused) {
+        video.play().then(() => setIsPlaying(true)).catch(() => {});
       } else {
-        videoRef.current.pause();
+        video.pause();
         setIsPlaying(false);
       }
     }
@@ -89,7 +152,7 @@ export function VideoTour() {
             </h2>
 
             <p className="text-mist/80 text-base sm:text-lg font-light leading-relaxed mb-8">
-              Experience the celebratory ribbon-cutting, family gatherings, and the serene rainforest ambience of Yashin Stay in Vythiri, Wayanad — captured in continuous vertical motion.
+              Experience the celebratory ribbon-cutting, family pool gathering, and serene rainforest atmosphere of Yashin Stay in Vythiri, Wayanad — captured in genuine high-definition vertical video.
             </p>
 
             {/* 3 Milestone Feature Points */}
@@ -99,11 +162,11 @@ export function VideoTour() {
                   <PartyPopper className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-serif text-base sm:text-lg text-white font-medium">
+                  <h3 className="font-serif text-base sm:text-lg text-white font-medium">
                     Ceremonial Ribbon-Cutting
-                  </h4>
+                  </h3>
                   <p className="text-xs text-mist/75 mt-0.5">
-                    Family and friends gathering at the resort entrance to celebrate our inauguration.
+                    Family and guests gathering at the illuminated villa entrance to celebrate our inauguration.
                   </p>
                 </div>
               </div>
@@ -113,25 +176,25 @@ export function VideoTour() {
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-serif text-base sm:text-lg text-white font-medium">
-                    12 Rooms Across 3 Pool Cottages
-                  </h4>
+                  <h3 className="font-serif text-base sm:text-lg text-white font-medium">
+                    12 Ensuite Rooms across 3 Hillside Cottages
+                  </h3>
                   <p className="text-xs text-mist/75 mt-0.5">
-                    Our 6-room, 4-room, and 2-room layouts in Vythiri complete with swimming pool access.
+                    Our 6-room, 4-room, and 2-room villa layouts with Italian marble baths and pool deck access.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-amber/30 transition-colors">
+              <div className="flex items-start gap-3.5 p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/30 transition-colors">
                 <div className="w-9 h-9 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 mt-0.5">
                   <CheckCircle2 className="w-4 h-4" />
                 </div>
                 <div>
-                  <h4 className="font-serif text-base sm:text-lg text-white font-medium">
+                  <h3 className="font-serif text-base sm:text-lg text-white font-medium">
                     Direct Host WhatsApp Booking
-                  </h4>
+                  </h3>
                   <p className="text-xs text-mist/75 mt-0.5">
-                    Fast confirmations, personalized group rates, and dates inquiry via WhatsApp.
+                    Instant date availability, custom family packages, and personalized hospitality.
                   </p>
                 </div>
               </div>
@@ -149,20 +212,20 @@ export function VideoTour() {
                 <span>Chat with Host on WhatsApp</span>
               </CTAButton>
 
-              <CTAButton
-                href="#stays"
-                variant="outline"
-                size="md"
-                className="text-white border-white/25 hover:border-white hover:bg-white/10"
+              <button
+                type="button"
+                onClick={() => setIsReelModalOpen(true)}
+                className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-white/10 hover:bg-amber hover:text-forest-dark text-white border border-white/20 transition-all duration-300 cursor-pointer font-mono text-xs uppercase tracking-wider font-semibold shadow-md"
               >
-                <span>View Accommodations</span>
-              </CTAButton>
+                <Maximize2 className="w-4 h-4" />
+                <span>Fullscreen Cinema Reel</span>
+              </button>
             </div>
           </ScrollReveal>
         </div>
 
         {/* Right Column: Always Playing Muted Vertical Reel Player */}
-        <div className="lg:col-span-5 flex justify-center">
+        <div className="lg:col-span-5 flex justify-center" ref={containerRef}>
           <ScrollReveal direction="right" className="w-full max-w-[340px] sm:max-w-[370px]">
             {/* Phone Bezel / Luxury Vertical Reel Stage */}
             <div className="relative rounded-[2.5rem] p-2.5 sm:p-3 bg-gradient-to-b from-white/25 via-white/10 to-white/5 backdrop-blur-2xl border-2 border-amber/40 shadow-[0_25px_60px_rgba(0,0,0,0.7)] group">
@@ -186,11 +249,11 @@ export function VideoTour() {
                   muted={isMuted}
                   loop
                   playsInline
-                  preload="metadata"
-                  poster="/media/images/real-pool-cottage.jpg"
+                  preload="auto"
+                  poster={siteData.video.poster}
                   className="w-full h-full object-cover scale-102"
                 >
-                  <source src="/media/videos/hero.mp4" type="video/mp4" />
+                  <source src={siteData.video.src} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
 
@@ -225,14 +288,14 @@ export function VideoTour() {
                   </button>
                 </div>
 
-                {/* Center Paused Indicator (only shows if user clicks pause) */}
+                {/* Center Paused Indicator (only shows if paused) */}
                 {!isPlaying && (
                   <div className="absolute inset-0 bg-black/45 backdrop-blur-[2px] flex flex-col items-center justify-center p-6 text-center z-10 transition-opacity">
                     <div className="w-16 h-16 rounded-full bg-amber text-forest-dark flex items-center justify-center shadow-xl">
                       <Play className="w-8 h-8 ml-1 fill-forest-dark" />
                     </div>
-                    <span className="mt-3 text-xs font-mono text-white tracking-wider uppercase">
-                      Paused • Tap to Play
+                    <span className="mt-3 text-xs font-mono text-white tracking-wider uppercase font-semibold">
+                      Tap to Play
                     </span>
                   </div>
                 )}
@@ -259,6 +322,9 @@ export function VideoTour() {
           </ScrollReveal>
         </div>
       </div>
+
+      {/* Fullscreen Vertical Smartphone Reel Modal */}
+      <ReelModal isOpen={isReelModalOpen} onClose={() => setIsReelModalOpen(false)} />
     </SectionWrapper>
   );
 }

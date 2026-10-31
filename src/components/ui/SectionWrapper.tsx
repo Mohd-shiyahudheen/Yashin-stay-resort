@@ -14,7 +14,6 @@ export function SectionWrapper({
   className = "",
   containerClassName = "",
   children,
-  dark = true,
   style,
 }: SectionWrapperProps) {
   const hasBgClass = /\bbg-/.test(className);

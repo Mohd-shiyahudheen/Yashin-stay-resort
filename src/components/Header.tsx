@@ -9,10 +9,11 @@ import { MessageCircle, Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 
 const navLinks = [
   { label: "Sanctuary", href: "#story", id: "story" },
-  { label: "Stays & Pool", href: "#stays", id: "stays" },
+  { label: "Stays", href: "#stays", id: "stays" },
   { label: "Gallery", href: "#gallery", id: "gallery" },
+  { label: "Reel", href: "#inauguration", id: "inauguration" },
+  { label: "Experiences", href: "#experiences", id: "experiences" },
   { label: "Location", href: "#location", id: "location" },
-  { label: "Reserve", href: "#enquiry", id: "enquiry" },
 ];
 
 export function Header() {

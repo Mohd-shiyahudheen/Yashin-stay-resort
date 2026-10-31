@@ -13,7 +13,6 @@ import {
   CheckCircle2,
   ShieldCheck,
   Star,
-  Calendar,
 } from "lucide-react";
 
 export function EnquiryForm() {
@@ -30,7 +29,11 @@ export function EnquiryForm() {
   const [todayStr, setTodayStr] = useState<string>("");
 
   useEffect(() => {
-    setTodayStr(new Date().toISOString().split("T")[0]);
+    const today = new Date().toISOString().split("T")[0];
+    const timer = setTimeout(() => {
+      setTodayStr(today);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const stayOptions = [

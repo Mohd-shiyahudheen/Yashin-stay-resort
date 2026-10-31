@@ -1,20 +1,19 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { siteData } from "@/data/siteData";
 import { SectionWrapper } from "./ui/SectionWrapper";
 import { SectionHeading } from "./ui/SectionHeading";
 import { CTAButton } from "./ui/CTAButton";
+import { ReelModal } from "./ReelModal";
 import {
   Waves,
   Smile,
   Camera,
   Flame,
-  Volume2,
-  VolumeX,
   Play,
   ArrowRight,
-  Smartphone,
 } from "lucide-react";
 
 // Animated counter hook
@@ -78,9 +77,7 @@ const pillars = [
 ];
 
 export function OurStory() {
-  const [isMuted, setIsMuted] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isReelModalOpen, setIsReelModalOpen] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [statsVisible, setStatsVisible] = useState(false);
 
@@ -98,38 +95,6 @@ export function OurStory() {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        setIsPlaying(false);
-      });
-    }
-  }, []);
-
-  const toggleSound = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (videoRef.current) {
-      const nextMuted = !isMuted;
-      videoRef.current.muted = nextMuted;
-      setIsMuted(nextMuted);
-    }
-  };
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      }
-    }
-  };
 
   const roomCount = useCountUp(12, 1200, statsVisible);
   const cottageCount = useCountUp(3, 800, statsVisible);
@@ -150,85 +115,77 @@ export function OurStory() {
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber/20 to-transparent" />
 
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 lg:gap-14 items-center">
-        {/* ── Left: Phone Reel ── */}
+        {/* ── Left: Sanctuary Visual Landmark ── */}
         <div className="lg:col-span-5 flex justify-center">
-          <div className="w-full max-w-[300px] sm:max-w-[340px]">
+          <div className="w-full max-w-[340px] sm:max-w-[400px]">
             {/* Outer glow ring */}
-            <div className="relative">
+            <div className="relative group">
               {/* Rotating halo */}
-              <div className="absolute -inset-4 rounded-[3rem] opacity-30 animate-rotate-halo pointer-events-none"
+              <div
+                className="absolute -inset-3 rounded-[2.5rem] opacity-35 animate-rotate-halo pointer-events-none"
                 style={{
-                  background: "conic-gradient(from 0deg, transparent 0%, rgba(197,160,89,0.5) 25%, transparent 50%, rgba(197,160,89,0.3) 75%, transparent 100%)",
-                  filter: "blur(6px)",
+                  background:
+                    "conic-gradient(from 0deg, transparent 0%, rgba(197,160,89,0.5) 25%, transparent 50%, rgba(197,160,89,0.3) 75%, transparent 100%)",
+                  filter: "blur(8px)",
                 }}
               />
 
-              <div className="relative rounded-[2.5rem] p-2.5 sm:p-3 bg-gradient-to-b from-white/12 via-forest-light/25 to-white/6 backdrop-blur-2xl border-2 border-amber/45 shadow-[0_30px_70px_rgba(0,0,0,0.7),0_0_40px_rgba(197,160,89,0.12)] group animate-float-slow">
-                {/* Phone notch */}
-                <div className="absolute top-3 left-1/2 -translate-x-1/2 w-16 h-1 rounded-full bg-white/10 z-30" />
+              <div className="relative rounded-[2rem] p-3 sm:p-3.5 bg-gradient-to-b from-white/12 via-forest-light/25 to-white/6 backdrop-blur-2xl border-2 border-amber/40 shadow-[0_30px_70px_rgba(0,0,0,0.7),0_0_40px_rgba(197,160,89,0.12)] overflow-hidden transition-all duration-500 hover:border-amber/60">
+                {/* Main Visual Image */}
+                <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-forest-dark">
+                  <Image
+                    src="/media/images/cottage-walkway-night.jpeg"
+                    alt="Yashin Stay architectural villa courtyard and illuminated stone walkway at night in Vythiri, Wayanad"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 400px"
+                    className="object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
+                    priority
+                  />
 
-                <div
-                  className="relative aspect-[9/16] w-full rounded-[2rem] overflow-hidden bg-black shadow-inner cursor-pointer"
-                  onClick={togglePlay}
-                  role="button"
-                  tabIndex={0}
-                  aria-label={isPlaying ? "Pause Video Reel" : "Play Video Reel"}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      togglePlay();
-                    }
-                  }}
-                >
-                  {/* Video */}
-                  <video
-                    ref={videoRef}
-                    autoPlay
-                    muted={isMuted}
-                    loop
-                    playsInline
-                    preload="metadata"
-                    poster="/media/images/real-pool-cottage.jpg"
-                    className="w-full h-full object-cover"
-                  >
-                    <source src="/media/videos/hero.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                  {/* Gradient vignettes */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/90 via-forest-dark/20 to-black/30 pointer-events-none" />
 
-                  {/* Gradient vignette on video */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-forest-dark/60 via-transparent to-forest-dark/30 pointer-events-none" />
-
-                  {/* Top badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between text-white text-[11px] font-mono z-20 pointer-events-none">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-forest-dark/90 backdrop-blur-md border border-amber/25 text-amber shadow-md">
-                      <Smartphone className="w-3 h-3 text-amber" />
-                      <span>Resort Reel</span>
+                  {/* Top Badge: Verified Sanctuary */}
+                  <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between text-white text-[11px] font-mono z-10">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-dark/85 backdrop-blur-md border border-amber/35 text-amber shadow-md">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                      </span>
+                      <span>Vythiri, Kerala</span>
                     </span>
 
+                    <span className="px-2.5 py-1 rounded-full bg-forest-dark/80 backdrop-blur-md border border-white/15 text-white/90 text-[10px]">
+                      700m Altitude
+                    </span>
+                  </div>
+
+                  {/* Play Video CTA Button Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
                     <button
                       type="button"
-                      onClick={toggleSound}
-                      className="w-8 h-8 rounded-full bg-forest-dark/90 backdrop-blur-md border border-white/25 text-white flex items-center justify-center hover:bg-amber hover:text-forest-dark transition-all duration-300 pointer-events-auto cursor-pointer hover:scale-110"
-                      aria-label={isMuted ? "Unmute Video" : "Mute Video"}
+                      onClick={() => setIsReelModalOpen(true)}
+                      className="group/btn inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-forest-dark/85 hover:bg-amber text-white hover:text-forest-dark border border-amber/50 hover:border-amber shadow-[0_0_30px_rgba(0,0,0,0.8),0_0_20px_rgba(197,160,89,0.35)] transition-all duration-300 hover:scale-108 active:scale-95 cursor-pointer backdrop-blur-md"
+                      aria-label="Open Fullscreen Cinematic Video Reel"
                     >
-                      {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4 text-emerald-300" />}
+                      <div className="w-8 h-8 rounded-full bg-amber text-forest-dark group-hover/btn:bg-forest-dark group-hover/btn:text-amber flex items-center justify-center transition-colors">
+                        <Play className="w-4 h-4 ml-0.5 fill-current" />
+                      </div>
+                      <span className="font-mono text-xs uppercase tracking-wider font-semibold">
+                        Watch Reel
+                      </span>
                     </button>
                   </div>
 
-                  {/* Play overlay */}
-                  {!isPlaying && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-10 pointer-events-none">
-                      <div className="w-16 h-16 rounded-full bg-amber/90 text-forest-dark flex items-center justify-center shadow-[0_0_30px_rgba(197,160,89,0.6)]">
-                        <Play className="w-8 h-8 ml-1 fill-forest-dark text-forest-dark" />
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Bottom label */}
-                  <div className="absolute bottom-3 left-3 right-3 text-white z-20 pointer-events-none">
-                    <div className="px-3.5 py-2 rounded-xl bg-forest-dark/90 backdrop-blur-md border border-white/15">
-                      <p className="font-serif text-sm font-medium text-white">Yashin Stay in Motion</p>
-                      <p className="text-[10px] text-amber-light/90 font-mono">Vythiri • 12 Rooms Across 3 Cottages</p>
+                  {/* Bottom Caption Overlay */}
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 text-white z-10">
+                    <div className="px-4 py-2.5 rounded-xl bg-forest-dark/90 backdrop-blur-md border border-white/15 shadow-md">
+                      <p className="font-serif text-sm sm:text-base font-medium text-white">
+                        The Hillside Sanctuary
+                      </p>
+                      <p className="text-[10px] sm:text-[11px] text-amber-light font-mono mt-0.5">
+                        12 Ensuite Bedrooms across 3 Hillside Cottages
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -285,7 +242,7 @@ export function OurStory() {
 
             {/* ── Pillars 2×2 Grid ── */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-7 pt-1">
-              {pillars.map((pillar, idx) => {
+              {pillars.map((pillar) => {
                 const IconComponent = pillar.icon;
                 return (
                   <div
@@ -339,6 +296,9 @@ export function OurStory() {
 
       {/* Section divider bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber/15 to-transparent" />
+
+      {/* Fullscreen Vertical Smartphone Reel Modal */}
+      <ReelModal isOpen={isReelModalOpen} onClose={() => setIsReelModalOpen(false)} />
     </SectionWrapper>
   );
 }

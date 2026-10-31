@@ -3,10 +3,15 @@ import { Hero } from "@/components/Hero";
 import { OurStory } from "@/components/OurStory";
 import { Stays } from "@/components/Stays";
 import { Gallery } from "@/components/Gallery";
+import { Amenities } from "@/components/Amenities";
+import { VideoTour } from "@/components/VideoTour";
+import { Experiences } from "@/components/Experiences";
+import { Testimonials } from "@/components/Testimonials";
 import { Location } from "@/components/Location";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import { Footer } from "@/components/Footer";
 import { FloatingConcierge } from "@/components/FloatingConcierge";
+import { ForestAudioPlayer } from "@/components/ForestAudioPlayer";
 
 export default function Home() {
   return (
@@ -17,11 +22,16 @@ export default function Home() {
         <OurStory />
         <Stays />
         <Gallery />
+        <Amenities />
+        <VideoTour />
+        <Experiences />
+        <Testimonials />
         <Location />
         <EnquiryForm />
       </main>
       <Footer />
       <FloatingConcierge />
+      <ForestAudioPlayer />
     </div>
   );
 }
